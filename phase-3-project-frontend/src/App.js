@@ -1,15 +1,21 @@
 import './App.css';
+import styled from 'styled-components'
+
+const Container = styled.div`
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <Container>
+      <div className="App">
+        <header className="App-header">
+        </header>
 
-      <body>
-        {/* routes here i think */}
-      </body>
-    </div>
+        <body>
+          {/* routes here i think */}
+        </body>
+      </div>
+    </Container>
   );
 }
 

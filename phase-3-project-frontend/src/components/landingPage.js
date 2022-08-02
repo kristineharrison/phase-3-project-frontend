@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+const Container = styled.div`
+
+.projectItem{ }
+
+.bttn{ }
+
+`
+
+
 function LandingPage (){
     return(
         <Container>
@@ -9,9 +18,9 @@ function LandingPage (){
                 <h3> "Project Name" </h3>
                 <h3> Due Date: </h3>
                 <h3> "Project Due Date" </h3>
-                <button> Delete Project </button>
+                <button class="bttn"> Delete Project </button>
             </div>
-            <button> Create New Project </button>
+            <button class="bttn"> Create New Project </button>
             
 
 
