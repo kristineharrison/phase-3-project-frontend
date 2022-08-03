@@ -1,99 +1,93 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components'
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import LandingPage from './components/landingPage';
-import NavFormBar from './components/navFormBar'
+import LandingPage from "./components/landingPage";
+import NavFormBar from "./components/navFormBar";
 
+const Container = styled.div``;
 
-const Container = styled.div`
+function App() {
+  const [projectsData, setProjectsData] = useState([]);
+  const [businessData, setBusinessData] = useState([]);
+  const [requestsData, setRequestsData] = useState([]);
+  const [teamsData, setTeamsData] = useState([]);
+  const [tasksData, setTasksData] = useState([]);
+  const [membersData, setMembersData] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/projects")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setProjectsData(fetchedData);
+      });
+  }, []);
 
-`
+  function addNewBusiness(newBusiness) {
+    setBusinessData([newBusiness, ...businessData]);
 
-function App(){
-
-  const [projectsData, setProjectsData] = useState([])
-  const [businessData, setBusinessData] = useState([])
-  const [requestsData, setRequestsData] = useState([])
-  const [teamsData, setTeamsData] = useState([])
-  const [tasksData, setTasksData] = useState([])
-  const [membersData, setMembersData] = useState([])
-
-  useEffect(()=>{
-    fetch('http://localhost:9292/projects')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
-                            setProjectsData(fetchedData)})
-    }, [])
-
-  function addNewBusiness(newBusiness){
-    setBusinessData([newBusiness, ...businessData])
-
-    fetch('http://localhost:9292/business', {
+    fetch("http://localhost:9292/business", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newBusiness)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBusiness),
+    });
   }
 
-  function addNewRequest(newRequest){
-    setRequestsData([newRequest, ...requestsData])
+  function addNewRequest(newRequest) {
+    setRequestsData([newRequest, ...requestsData]);
 
-      fetch('http://localhost:9292/requests', {
+    fetch("http://localhost:9292/requests", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newRequest)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newRequest),
+    });
   }
-  function addNewTeam(newTeam){
-    setTeamsData([newTeam, ...teamsData])
+  function addNewTeam(newTeam) {
+    setTeamsData([newTeam, ...teamsData]);
 
-      fetch('http://localhost:9292/teams', {
+    fetch("http://localhost:9292/teams", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newTeam)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newTeam),
+    });
   }
-  function addNewTask(newTask){
-    setTasksData([newTask, ...tasksData])
+  function addNewTask(newTask) {
+    setTasksData([newTask, ...tasksData]);
 
-      fetch('http://localhost:9292/tasks', {
+    fetch("http://localhost:9292/tasks", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newTask)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newTask),
+    });
   }
-  function addNewMember(newMember){
-    setMembersData([newMember, ...membersData])
+  function addNewMember(newMember) {
+    setMembersData([newMember, ...membersData]);
 
-      fetch('http://localhost:9292/members', {
+    fetch("http://localhost:9292/members", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newMember)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newMember),
+    });
   }
-
 
   return (
     <Container>
       <div class="App">
-            < NavFormBar
-                          functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
-                          functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
-                          functionForAddingNewMember={addNewMember}
-                
-                />
-            
-            <LandingPage sendingProjectData={projectsData}
-                          // functionForAddingNewBusiness={addNewBusiness}
-                          // functionForAddingNewRequest={addNewRequest}
-                          // functionForAddingNewTeam={addNewTeam}
-                          // functionForAddingNewTask={addNewTask}
-                          // functionForAddingNewMember={addNewMember}
-            />
-
+        <NavFormBar
+          functionForAddingNewBusiness={addNewBusiness}
+          functionForAddingNewRequest={addNewRequest}
+          functionForAddingNewTeam={addNewTeam}
+          functionForAddingNewTask={addNewTask}
+          functionForAddingNewMember={addNewMember}
+        />
+        <LandingPage
+        // sendingProjectData={projectsData}
+        // functionForAddingNewBusiness={addNewBusiness}
+        // functionForAddingNewRequest={addNewRequest}
+        // functionForAddingNewTeam={addNewTeam}
+        // functionForAddingNewTask={addNewTask}
+        // functionForAddingNewMember={addNewMember}
+        />
       </div>
     </Container>
   );

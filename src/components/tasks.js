@@ -1,25 +1,32 @@
-import styled from 'styled-components'
+import { useState } from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
-.button{}
-
-`
+  .button {
+  }
+`;
 // function so that when the completed button is clicked it becomes more faded
 
+function Tasks() {
+  const [checked, setChecked] = useState(false);
 
-function Tasks(){
+  const handleChange = () => {
+    setChecked(!checked);
+  };
 
+  return (
+    <Container>
+      <p> "Task Name" </p>
+      <p> "Task Skills"</p>
+      <p> "Task Description" </p>
 
-    return (
-        <Container>
-                <p> "Task Name" </p>
-                <p> "Task Skills"</p>
-                <p> "Task Description" </p>
-                <input type="checkbox"> </input>
-                <label for="completedTask"> Completed </label>
-                <button class="button"> update </button>
-                <button class="button"> delete </button>
-        </Container>
-    )
+      <label>
+        <input type="checkbox" checked={checked} onChange={handleChange} />
+        Completed
+      </label>
+      <button class="button"> update </button>
+      <button class="button"> delete </button>
+    </Container>
+  );
 }
-export default Tasks
+export default Tasks;
