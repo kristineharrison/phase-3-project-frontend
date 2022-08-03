@@ -1,26 +1,37 @@
-// import { useEffect, useState } from 'react'
-import styled from "styled-components";
-import ProjectCard from "./projectCard";
+import { useState } from 'react'
+import styled from 'styled-components'
+
+import NavFormBar from './navFormBar'
+import ProjectCard from './projectCard'
+import ProjectPreview from './projectPreview'
 
 const Container = styled.div`
-  .projectItem {
-  }
 
-  .bttn {
-  }
-`;
+.projectItem{ }
 
-function LandingPage() {
-  return (
-    <Container>
-      <h1> Project Manager </h1>
-      {/* potentially a search bar here by Project name, teammembers, languages used */}
-      <div class="projectItems">
-        <ProjectCard />
-        <button class="bttn"> Delete Project </button>
-      </div>
-      <button class="bttn"> Create New Project </button>
-    </Container>
-  );
+.bttn{ }
+
+`
+
+
+function LandingPage(){
+
+    const [openFullProject, setOpenFullProject]= useState(true)
+
+    function displayFullCards(){
+        setOpenFullProject(!openFullProject)
+    }
+
+
+
+    return(
+        <Container>
+            <h1> Project Manager </h1>
+            <div class="projectItems" onClick={displayFullCards}> 
+                {openFullProject? <ProjectPreview/> : <ProjectCard/>}
+            </div>
+            <button class="bttn"> Create New Project </button> 
+        </Container>
+)
 }
 export default LandingPage;

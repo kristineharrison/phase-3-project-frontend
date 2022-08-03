@@ -24,7 +24,6 @@ function Tasks() {
         <input type="checkbox" checked={checked} onChange={handleChange} />
         Completed
       </label>
-
       <button class="button"> update </button>
       <button class="button"> delete </button>
     </Container>

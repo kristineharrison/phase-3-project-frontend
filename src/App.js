@@ -71,25 +71,6 @@ function App() {
   }
 
   return (
-    <Container>
-      <h1>Jello</h1>
-      <div class="App">
-        <NavFormBar
-          functionForAddingNewBusiness={addNewBusiness}
-          functionForAddingNewRequest={addNewRequest}
-          functionForAddingNewTeam={addNewTeam}
-          functionForAddingNewTask={addNewTask}
-          functionForAddingNewMember={addNewMember}
-        />
-        <LandingPage
-        // sendingProjectData={projectsData}
-        // functionForAddingNewBusiness={addNewBusiness}
-        // functionForAddingNewRequest={addNewRequest}
-        // functionForAddingNewTeam={addNewTeam}
-        // functionForAddingNewTask={addNewTask}
-        // functionForAddingNewMember={addNewMember}
-        />
-      </div>
     </Container>
   );
 }
