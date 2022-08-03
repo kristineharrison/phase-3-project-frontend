@@ -53,22 +53,6 @@ function App(){
   }
 
   useEffect(()=>{
-    fetch('http://localhost:9292/requests')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
-                            setRequestsData(fetchedData)})
-    }, [])
-  function addNewRequest(newRequest){
-    setRequestsData([newRequest, ...requestsData])
-
-    fetch("http://localhost:9292/requests", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newRequest),
-    });
-  }
-
-  useEffect(()=>{
     fetch('http://localhost:9292/teams')
     .then(res => res.json())
     .then ((fetchedData)=> {(console.log(fetchedData))
@@ -118,25 +102,26 @@ function App(){
 
   return (
     <Container>
-      <div class="App">
-        <NavFormBar
-          functionForAddingNewBusiness={addNewBusiness}
-          functionForAddingNewRequest={addNewRequest}
-          functionForAddingNewTeam={addNewTeam}
-          functionForAddingNewTask={addNewTask}
-          functionForAddingNewMember={addNewMember}
-        />
-        <LandingPage
-        // sendingProjectData={projectsData}
-        // functionForAddingNewBusiness={addNewBusiness}
-        // functionForAddingNewRequest={addNewRequest}
-        // functionForAddingNewTeam={addNewTeam}
-        // functionForAddingNewTask={addNewTask}
-        // functionForAddingNewMember={addNewMember}
-        />
-      </div>
+            < NavFormBar
+                          functionForAddingNewBusiness={addNewBusiness}
+                          functionForAddingNewTeam={addNewTeam}
+                          functionForAddingNewTask={addNewTask}
+                          functionForAddingNewMember={addNewMember}
+                          functionForAddingNewProject={addNewProject}
+                
+                />
+                {/* NAVFORMBAR WORKS SORTOF */}
+            
+            <LandingPage 
+                          sendingProjectData={projectsData}
+                          functionForAddingNewBusiness={addNewBusiness}
+                          functionForAddingNewTeam={addNewTeam}
+                          functionForAddingNewTask={addNewTask}
+                          functionForAddingNewMember={addNewMember}
+            />
+
     </Container>
-  );
+  )
 }
 
-export default App;
+export default App

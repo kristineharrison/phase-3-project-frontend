@@ -21,10 +21,10 @@ function NewBusiness({functionForAddingNewBusiness}){
 
                 let newBusiness ={
                     name: nameState,
-                    image: imageState,
+                    logo_url: imageState,
                     email: emailState,
                     phone: phoneState,
-                    contact: contactState
+                    contact_name: contactState
                 }
                 functionForAddingNewBusiness(newBusiness)
             }}
