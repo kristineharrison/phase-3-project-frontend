@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 import LandingPage from './components/LandingPage';
-import BusinessLandingPage from './components/businessLandingPage'
-import MembersLandingPage from './components/memebersLandingPage'
+import NavFormBar from './components/navFormBar'
+// import BusinessLandingPage from './components/businessLandingPage'
+// import MembersLandingPage from './components/memebersLandingPage'
 
 
 
@@ -78,9 +79,7 @@ function App(){
 
   return (
     <Container>
-      <div className="App">
-          <Routes>
-            <header className="App-header">
+      <div class="App">
             < NavFormBar functionForAddingNewBusiness={addNewBusiness}
                           functionForAddingNewRequest={addNewRequest}
                           functionForAddingNewTeam={addNewTeam}
@@ -88,16 +87,14 @@ function App(){
                           functionForAddingNewMember={addNewMember}
                 
                 />
-            </header>
-            <Route path="/" element={<LandingPage sendingProjectData={projectsData}/>
-            }/>
-            <Route path="/business" element={<BusinessLandingPage/>}/>
-            <Route path="/members" element={<MembersLandingPage/>}/>
-
-
-        <div>
-        </div>
-        </Routes>
+            
+            <LandingPage sendingProjectData={projectsData}
+                          functionForAddingNewBusiness={addNewBusiness}
+                          functionForAddingNewRequest={addNewRequest}
+                          functionForAddingNewTeam={addNewTeam}
+                          functionForAddingNewTask={addNewTask}
+                          functionForAddingNewMember={addNewMember}
+            />
 
       </div>
     </Container>
