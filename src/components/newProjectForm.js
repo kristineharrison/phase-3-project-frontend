@@ -8,7 +8,7 @@ const Container = styled.div`
 
 function NewProject(){
 
-    
+
     return(
         <Container>
 

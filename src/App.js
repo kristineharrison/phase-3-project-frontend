@@ -3,9 +3,6 @@ import styled from 'styled-components'
 
 import LandingPage from './components/LandingPage';
 import NavFormBar from './components/navFormBar'
-// import BusinessLandingPage from './components/businessLandingPage'
-// import MembersLandingPage from './components/memebersLandingPage'
-
 
 
 const Container = styled.div`
@@ -49,7 +46,7 @@ function App(){
   })
   }
   function addNewTeam(newTeam){
-    setRequestsData([newTeam, ...teamsData])
+    setTeamsData([newTeam, ...teamsData])
 
       fetch('http://localhost:9292/teams', {
       method: "POST",
@@ -58,7 +55,7 @@ function App(){
   })
   }
   function addNewTask(newTask){
-    setRequestsData([newTask, ...tasksData])
+    setTasksData([newTask, ...tasksData])
 
       fetch('http://localhost:9292/tasks', {
       method: "POST",
@@ -67,7 +64,7 @@ function App(){
   })
   }
   function addNewMember(newMember){
-    setRequestsData([newMember, ...membersData])
+    setMembersData([newMember, ...membersData])
 
       fetch('http://localhost:9292/members', {
       method: "POST",
@@ -80,7 +77,7 @@ function App(){
   return (
     <Container>
       <div class="App">
-            < NavFormBar sendingProjectData={projectsData}
+            < NavFormBar
                           functionForAddingNewBusiness={addNewBusiness}
                           functionForAddingNewRequest={addNewRequest}
                           functionForAddingNewTeam={addNewTeam}
@@ -90,11 +87,11 @@ function App(){
                 />
             
             <LandingPage sendingProjectData={projectsData}
-                          functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
-                          functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
-                          functionForAddingNewMember={addNewMember}
+                          // functionForAddingNewBusiness={addNewBusiness}
+                          // functionForAddingNewRequest={addNewRequest}
+                          // functionForAddingNewTeam={addNewTeam}
+                          // functionForAddingNewTask={addNewTask}
+                          // functionForAddingNewMember={addNewMember}
             />
 
       </div>
