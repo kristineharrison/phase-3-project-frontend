@@ -1,5 +1,7 @@
+// import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import NavFormBar from './navFormBar'
 import ProjectCard from './projectCard'
 
 const Container = styled.div`
@@ -12,7 +14,7 @@ const Container = styled.div`
 
 
 function LandingPage(){
-    return(
+    return (
         <Container>
             <h1> Project Manager </h1>
             {/* potentially a search bar here by Project name, teammembers, languages used */}
@@ -21,6 +23,7 @@ function LandingPage(){
                 <button class="bttn"> Delete Project </button>
             </div>
             <button class="bttn"> Create New Project </button>
+
         </Container>
     )
 }

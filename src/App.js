@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/landingPage';
 import NavFormBar from './components/navFormBar'
 
 
