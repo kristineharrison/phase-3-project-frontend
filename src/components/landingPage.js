@@ -34,4 +34,4 @@ function LandingPage(){
         </Container>
 )
 }
-export default LandingPage
+export default LandingPage;
