@@ -8,10 +8,10 @@ const Container = styled.div`
 
 function NewProject(){
 
-    t.string "name"
-    business_name, how to grab that
-    t.string "description"
-    t.string "due_date"
+    // "name"
+    // business_name, how to grab that
+    // "description"
+    // "due_date"
 
 
     return(
