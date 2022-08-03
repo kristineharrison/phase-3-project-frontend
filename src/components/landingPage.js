@@ -7,7 +7,7 @@ import ProjectPreview from './projectPreview'
 
 const Container = styled.div`
 
-.projectItem{ }
+.projectItems{ }
 
 .bttn{ }
 

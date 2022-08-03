@@ -25,7 +25,22 @@ function App(){
     .then ((fetchedData)=> {(console.log(fetchedData))
                             setProjectsData(fetchedData)})
     }, [])
+  function addNewProject(newProject){
+    setProjectsData([newProject, ...projectsData])
 
+    fetch('http://localhost:9292/projects', {
+      method: "POST",
+      headers: {"Content-Type": "application/json" },
+      body: JSON.stringify(newProject)
+  })
+  }
+
+  useEffect(()=>{
+    fetch('http://localhost:9292/business')
+    .then(res => res.json())
+    .then ((fetchedData)=> {(console.log(fetchedData))
+                            setBusinessData(fetchedData)})
+    }, [])
   function addNewBusiness(newBusiness){
     setBusinessData([newBusiness, ...businessData])
 
@@ -36,6 +51,12 @@ function App(){
   })
   }
 
+  useEffect(()=>{
+    fetch('http://localhost:9292/requests')
+    .then(res => res.json())
+    .then ((fetchedData)=> {(console.log(fetchedData))
+                            setRequestsData(fetchedData)})
+    }, [])
   function addNewRequest(newRequest){
     setRequestsData([newRequest, ...requestsData])
 
@@ -45,6 +66,13 @@ function App(){
       body: JSON.stringify(newRequest)
   })
   }
+
+  useEffect(()=>{
+    fetch('http://localhost:9292/teams')
+    .then(res => res.json())
+    .then ((fetchedData)=> {(console.log(fetchedData))
+                            setTeamsData(fetchedData)})
+    }, [])
   function addNewTeam(newTeam){
     setTeamsData([newTeam, ...teamsData])
 
@@ -54,6 +82,13 @@ function App(){
       body: JSON.stringify(newTeam)
   })
   }
+
+  useEffect(()=>{
+    fetch('http://localhost:9292/tasks')
+    .then(res => res.json())
+    .then ((fetchedData)=> {(console.log(fetchedData))
+                            setTasksData(fetchedData)})
+    }, [])
   function addNewTask(newTask){
     setTasksData([newTask, ...tasksData])
 
@@ -63,6 +98,13 @@ function App(){
       body: JSON.stringify(newTask)
   })
   }
+
+  useEffect(()=>{
+    fetch('http://localhost:9292/members')
+    .then(res => res.json())
+    .then ((fetchedData)=> {(console.log(fetchedData))
+                            setMembersData(fetchedData)})
+    }, [])
   function addNewMember(newMember){
     setMembersData([newMember, ...membersData])
 
@@ -82,6 +124,7 @@ function App(){
                           functionForAddingNewTeam={addNewTeam}
                           functionForAddingNewTask={addNewTask}
                           functionForAddingNewMember={addNewMember}
+                          functionForAddingNewProject={addNewProject}
                 
                 />
                 {/* NAVFORMBAR WORKS SORTOF */}
