@@ -15,8 +15,7 @@ function Tasks(){
                 <p> "Task Name" </p>
                 <p> "Task Skills"</p>
                 <p> "Task Description" </p>
-                <input type="checkbox"> </input>
-                <label for="completedTask"> Completed </label>
+                <select type="checkbox"> Complete </select>
                 <button class="button"> update </button>
                 <button class="button"> delete </button>
         </Container>
