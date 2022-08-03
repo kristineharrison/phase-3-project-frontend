@@ -118,26 +118,23 @@ function App(){
 
   return (
     <Container>
-            < NavFormBar
-                          functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
-                          functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
-                          functionForAddingNewMember={addNewMember}
-                          functionForAddingNewProject={addNewProject}
-                
-                />
-                {/* NAVFORMBAR WORKS SORTOF */}
-            
-            <LandingPage 
-                          sendingProjectData={projectsData}
-                          functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
-                          functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
-                          functionForAddingNewMember={addNewMember}
-            />
-
+      <div class="App">
+        <NavFormBar
+          functionForAddingNewBusiness={addNewBusiness}
+          functionForAddingNewRequest={addNewRequest}
+          functionForAddingNewTeam={addNewTeam}
+          functionForAddingNewTask={addNewTask}
+          functionForAddingNewMember={addNewMember}
+        />
+        <LandingPage
+        // sendingProjectData={projectsData}
+        // functionForAddingNewBusiness={addNewBusiness}
+        // functionForAddingNewRequest={addNewRequest}
+        // functionForAddingNewTeam={addNewTeam}
+        // functionForAddingNewTask={addNewTask}
+        // functionForAddingNewMember={addNewMember}
+        />
+      </div>
     </Container>
   );
 }
