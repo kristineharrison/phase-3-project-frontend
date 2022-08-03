@@ -14,7 +14,6 @@ function App(){
 
   const [projectsData, setProjectsData] = useState([])
   const [businessData, setBusinessData] = useState([])
-  const [requestsData, setRequestsData] = useState([])
   const [teamsData, setTeamsData] = useState([])
   const [tasksData, setTasksData] = useState([])
   const [membersData, setMembersData] = useState([])
