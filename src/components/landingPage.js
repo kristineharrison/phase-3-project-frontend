@@ -12,8 +12,6 @@ const Container = styled.div`
 
 
 function LandingPage(){
-
-
     return(
         <Container>
             <h1> Project Manager </h1>
