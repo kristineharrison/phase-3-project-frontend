@@ -45,10 +45,11 @@ function App(){
     setBusinessData([newBusiness, ...businessData])
 
     fetch('http://localhost:9292/business', {
+
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newBusiness)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBusiness),
+    });
   }
 
   useEffect(()=>{
@@ -60,11 +61,11 @@ function App(){
   function addNewRequest(newRequest){
     setRequestsData([newRequest, ...requestsData])
 
-      fetch('http://localhost:9292/requests', {
+    fetch("http://localhost:9292/requests", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newRequest)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newRequest),
+    });
   }
 
   useEffect(()=>{
@@ -76,11 +77,11 @@ function App(){
   function addNewTeam(newTeam){
     setTeamsData([newTeam, ...teamsData])
 
-      fetch('http://localhost:9292/teams', {
+    fetch("http://localhost:9292/teams", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newTeam)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newTeam),
+    });
   }
 
   useEffect(()=>{
@@ -92,11 +93,11 @@ function App(){
   function addNewTask(newTask){
     setTasksData([newTask, ...tasksData])
 
-      fetch('http://localhost:9292/tasks', {
+    fetch("http://localhost:9292/tasks", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newTask)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newTask),
+    });
   }
 
   useEffect(()=>{
@@ -108,13 +109,12 @@ function App(){
   function addNewMember(newMember){
     setMembersData([newMember, ...membersData])
 
-      fetch('http://localhost:9292/members', {
+    fetch("http://localhost:9292/members", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newMember)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newMember),
+    });
   }
-
 
   return (
     <Container>
