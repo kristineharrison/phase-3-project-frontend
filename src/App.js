@@ -80,7 +80,8 @@ function App(){
   return (
     <Container>
       <div class="App">
-            < NavFormBar functionForAddingNewBusiness={addNewBusiness}
+            < NavFormBar sendingProjectData={projectsData}
+                          functionForAddingNewBusiness={addNewBusiness}
                           functionForAddingNewRequest={addNewRequest}
                           functionForAddingNewTeam={addNewTeam}
                           functionForAddingNewTask={addNewTask}

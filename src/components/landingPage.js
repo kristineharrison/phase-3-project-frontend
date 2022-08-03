@@ -1,6 +1,5 @@
 // import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import NavFormBar from './navFormBar'
 import ProjectCard from './projectpreview'
 
 const Container = styled.div`
@@ -12,7 +11,7 @@ const Container = styled.div`
 `
 
 
-function LandingPage({functionForAddingNewBusiness, functionForAddingNewRequest}){
+function LandingPage(){
 
     return(
         <Container>
