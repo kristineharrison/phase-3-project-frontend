@@ -13,7 +13,7 @@ function NewTaskform (functionForAddingNewTask){
 
     return (
         <Container>
-            <form onSubimt ={((event) => {
+            <form onSubmit ={((event) => {
                 event.preventDefault()
 
                 let newTask ={
@@ -23,10 +23,12 @@ function NewTaskform (functionForAddingNewTask){
                 }
                 functionForAddingNewTask(newTask)
 
-            })}/>
+            })}>
                 <input type="text" placeholder="Task Name"value={taskName} onChange = {(synthEvent) =>setTaskName (synthEvent.target.value) } />
                 <input type="text" placeholder="Languages Needed"value={taskSkills} onChange = {(synthEvent) =>setTaskLang (synthEvent.target.value) }/>
                 <input type="text" placeholder="Task Description"value={taskDescription} onChange = {(synthEvent) =>setTaskDescription(synthEvent.target.value) }/>
+                <button type="submit"> Add Task</button>
+            </form>
         </Container>
     )
 }

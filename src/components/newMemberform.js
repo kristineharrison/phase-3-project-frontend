@@ -8,7 +8,6 @@ const Container = styled.div`
 function NewMember (functionForAddingNewMember){
 
     const [memberName, setMemberName] = useState("")
-    const [memberEmail, setMemberEmail] = useState("")
     const [memberSkills, setMemberSkills] = useState("")
 
 
@@ -26,8 +25,8 @@ function NewMember (functionForAddingNewMember){
             })}>
                 <h4> New Member </h4>
                 <input type="text" placeholder='your name' value={memberName} onChange = {(synthEvent) =>setMemberName (synthEvent.target.value) }/>
-                <input type="text" placeholder='your email'value={memberEmail} onChange = {(synthEvent) =>setMemberEmail (synthEvent.target.value) }/>
                 <input type="text" placeholder='Languages/Skills'value={memberSkills} onChange = {(synthEvent) =>setMemberSkills (synthEvent.target.value) }/>
+                <button> Add Member </button>
         </form>
         </Container>
     )
