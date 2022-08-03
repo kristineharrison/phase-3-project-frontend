@@ -1,6 +1,9 @@
 // import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import ProjectCard from './projectpreview'
+import {Routes, Route} from "react-router-dom"
+
+import NavFormBar from './navFormBar'
+import ProjectCard from './projectCard'
 
 const Container = styled.div`
 
@@ -11,10 +14,20 @@ const Container = styled.div`
 `
 
 
-function LandingPage(){
+function LandingPage({functionForAddingNewBusiness, functionForAddingNewRequest, functionForAddingNewTeam, functionForAddingNewTask, functionForAddingNewMember}){
 
     return(
         <Container>
+            <header>
+                <NavFormBar functionForAddingNewBusiness={functionForAddingNewBusiness}
+                            functionForAddingNewRequest = {functionForAddingNewRequest}
+                            functionForAddingNewTeam = {functionForAddingNewTeam}
+                            functionForAddingNewTask = {functionForAddingNewTask}
+                            functionForAddingNewMember ={functionForAddingNewMember}
+
+                
+                />
+            </header>
             <h1> Project Manager </h1>
             {/* potentially a search bar here by Project name, teammembers, languages used */}
             <div class="projectItems"> 
