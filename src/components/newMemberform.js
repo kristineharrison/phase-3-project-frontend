@@ -5,7 +5,7 @@ const Container = styled.div`
 
 `
 
-function NewMember (functionForAddingNewMemeber){
+function NewMember (functionForAddingNewMember){
 
     const [memberName, setMemberName] = useState("")
     const [memberEmail, setMemberEmail] = useState("")
@@ -22,7 +22,7 @@ function NewMember (functionForAddingNewMemeber){
                     email: memberEmail,
                     skills: memberSkills
                 }
-                functionForAddingNewMemeber(newMember)
+                functionForAddingNewMember(newMember)
                 
             })}>
                 <h4> New Member </h4>

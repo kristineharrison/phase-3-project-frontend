@@ -25,7 +25,6 @@ function NavFormBar({functionForAddingNewBusiness, functionForAddingNewRequest})
     return(
         <Container>
             <div class="nav-forms">
-                {/* <h4 onClick={()=> {console.log(!openformNav)}}> Forms Bar </h4> */}
                 <h4 onClick={()=> {closeformNav(!openformNav)}}> Forms Bar </h4>
 
                 { openformNav ? 
