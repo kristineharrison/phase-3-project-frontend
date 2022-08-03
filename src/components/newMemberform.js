@@ -19,8 +19,7 @@ function NewMember (functionForAddingNewMember){
 
                 let newMember ={
                     name: memberName,
-                    email: memberEmail,
-                    skills: memberSkills
+                    skill: memberSkills
                 }
                 functionForAddingNewMember(newMember)
                 

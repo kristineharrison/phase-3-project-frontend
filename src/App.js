@@ -52,22 +52,6 @@ function App(){
   }
 
   useEffect(()=>{
-    fetch('http://localhost:9292/requests')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
-                            setRequestsData(fetchedData)})
-    }, [])
-  function addNewRequest(newRequest){
-    setRequestsData([newRequest, ...requestsData])
-
-      fetch('http://localhost:9292/requests', {
-      method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newRequest)
-  })
-  }
-
-  useEffect(()=>{
     fetch('http://localhost:9292/teams')
     .then(res => res.json())
     .then ((fetchedData)=> {(console.log(fetchedData))
@@ -120,7 +104,6 @@ function App(){
     <Container>
             < NavFormBar
                           functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
                           functionForAddingNewTeam={addNewTeam}
                           functionForAddingNewTask={addNewTask}
                           functionForAddingNewMember={addNewMember}
@@ -132,7 +115,6 @@ function App(){
             <LandingPage 
                           sendingProjectData={projectsData}
                           functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewRequest={addNewRequest}
                           functionForAddingNewTeam={addNewTeam}
                           functionForAddingNewTask={addNewTask}
                           functionForAddingNewMember={addNewMember}
