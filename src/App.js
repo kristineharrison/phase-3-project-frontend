@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/landingPage';
 import NavFormBar from './components/navFormBar'
 
 
@@ -76,7 +76,6 @@ function App(){
 
   return (
     <Container>
-      <div class="App">
             < NavFormBar
                           functionForAddingNewBusiness={addNewBusiness}
                           functionForAddingNewRequest={addNewRequest}
@@ -85,16 +84,17 @@ function App(){
                           functionForAddingNewMember={addNewMember}
                 
                 />
+                {/* NAVFORMBAR WORKS SORTOF */}
             
-            <LandingPage sendingProjectData={projectsData}
-                          // functionForAddingNewBusiness={addNewBusiness}
-                          // functionForAddingNewRequest={addNewRequest}
-                          // functionForAddingNewTeam={addNewTeam}
-                          // functionForAddingNewTask={addNewTask}
-                          // functionForAddingNewMember={addNewMember}
+            <LandingPage 
+                          sendingProjectData={projectsData}
+                          functionForAddingNewBusiness={addNewBusiness}
+                          functionForAddingNewRequest={addNewRequest}
+                          functionForAddingNewTeam={addNewTeam}
+                          functionForAddingNewTask={addNewTask}
+                          functionForAddingNewMember={addNewMember}
             />
 
-      </div>
     </Container>
   );
 }
