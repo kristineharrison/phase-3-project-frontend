@@ -10,7 +10,8 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
-`;
+
+`
 
 function LandingPage({ sendProjectsData, tasksData}) {
   const [openFullProject, setOpenFullProject] = useState(true);
