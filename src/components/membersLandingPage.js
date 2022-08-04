@@ -6,19 +6,19 @@ const Container = styled.div`
   }
 `;
 
-function MembersHomePage({sendMembersData}){
-
-  const membersList = sendMembersData.map((eachMember)=>
-      <MemberProfileCard key={eachMember.id} eachMember={eachMember}
-      /> 
-      );
-  return(
-      <Container>
-          <h1> Members Manager</h1>
-          {membersList}
-
-
-      </Container>
+function MembersHomePage({ sendMembersData, functionToDeleteMembers }) {
+  const membersList = sendMembersData.map((eachMember) => (
+    <MemberProfileCard
+      key={eachMember.id}
+      eachMember={eachMember}
+      functionToDeleteMembers={functionToDeleteMembers}
+    />
+  ));
+  return (
+    <Container>
+      <h1> Members Manager</h1>
+      {membersList}
+    </Container>
   );
 }
 export default MembersHomePage;

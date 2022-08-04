@@ -1,7 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
+import ProjectCard from "./projectCard";
 
 const Card = styled.div`
-  width: 200px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   vertical-align: center;
@@ -10,20 +12,51 @@ const Card = styled.div`
   padding: 20px;
 `;
 
-function ProjectPreview({ eachProject }) {
+const ButtonNav = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+`;
+
+function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function deleteClick() {
+    fetch(`http://localhost:9292/projects/${eachProject.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => functionToDeleteProjects(eachProject.id));
+  }
+
   return (
-    <Card onClick={() => console.log(eachProject)}>
-      <h3>{eachProject.name}</h3>
+    <Card>
+      <h3>Project Name: {eachProject.name}</h3>
       <img
         src={eachProject.business.logo_url}
         style={{ width: "150px" }}
         alt={eachProject.business.name}
       />
-      <h6>{eachProject.due_date}</h6>
-      {/* on click upens this information */}
-      <p>{eachProject.business.name}</p>
+      <h6>Due Date: {eachProject.due_date}</h6>
+      <p>Client:{eachProject.business.name}</p>
       <p>{eachProject.description}</p>
-      <p>Team: {eachProject.team.team_name}</p>
+      <p>Team Assigned: {eachProject.team.team_name}</p>
+
+      <button onClick={() => setIsOpen(true)}>Project Details</button>
+      {isOpen && (
+        <ProjectCard
+          setIsOpen={setIsOpen}
+          eachProject={eachProject}
+          tasksData={tasksData}
+        />
+      )}
+      <ButtonNav>
+        <button className="button"> Update Project </button>
+        <button className="button" onClick={deleteClick}>
+          {" "}
+          Delete Project{" "}
+        </button>
+      </ButtonNav>
     </Card>
   );
 }

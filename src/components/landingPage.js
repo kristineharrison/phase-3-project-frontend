@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import NavFormBar from "./navFormBar";
-import ProjectCard from "./projectCard";
+
 import ProjectPreview from "./projectPreview";
 
 const Container = styled.div`
@@ -12,37 +12,33 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-function LandingPage({ sendProjectsData, tasksData}) {
+function LandingPage({
+  sendProjectsData,
+  tasksData,
+  functionToDeleteProjects,
+  functionToDeleteTasks,
+}) {
   const [openFullProject, setOpenFullProject] = useState(true);
 
   function displayFullCards() {
     setOpenFullProject(!openFullProject);
   }
 
-  const handleClick = (event) => {
-    console.log(sendProjectsData[0]);
-  };
-
   const projectList = sendProjectsData.map((eachProject) => (
-    <ProjectPreview key={eachProject.id} eachProject={eachProject} />
+    <ProjectPreview
+      key={eachProject.id}
+      eachProject={eachProject}
+      tasksData={tasksData}
+      functionToDeleteProjects={functionToDeleteProjects}
+      functionToDeleteTasks={functionToDeleteTasks}
+    />
   ));
 
   return (
     <div>
-      <h1 onClick={handleClick}> Project Manager </h1>
-      <Container>
-        {projectList}
-
-        {/* 
-            <div className="projectItems" onClick={displayFullCards}> 
-                {openFullProject? 
-                    <ProjectPreview sendProjectsData={sendProjectsData}/> : 
-                    <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData}/>}
-            </div> */}
-      </Container>
+      <h1> Project Manager </h1>
+      <Container>{projectList}</Container>
       <button className="bttn"> Create New Project </button>
-
-      <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData} />
     </div>
   );
 }
