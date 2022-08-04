@@ -10,7 +10,18 @@ const Card = styled.div`
   padding: 20px;
 `;
 
-function ProjectPreview({ eachProject }) {
+function ProjectPreview({ eachProject, functionToDeleteProjects }) {
+
+  function deleteClick(){
+    fetch(`http://localhost:9292/projects/${eachProject.id}`, {
+      method:"DELETE"
+    })
+    .then(res =>res.json())
+    .then(()=> functionToDeleteProjects(eachProject.id))
+  }
+
+
+
   return (
     <Card onClick={() => console.log(eachProject)}>
       <h3>{eachProject.name}</h3>
@@ -24,6 +35,9 @@ function ProjectPreview({ eachProject }) {
       <p>{eachProject.business.name}</p>
       <p>{eachProject.description}</p>
       <p>Team: {eachProject.team.team_name}</p>
+
+      <button className="button"> Update Project </button>
+      <button className="button" onClick={deleteClick}> Delete Project </button>
     </Card>
   );
 }

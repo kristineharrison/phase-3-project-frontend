@@ -6,10 +6,11 @@ const Container = styled.div`
   }
 `;
 
-function MembersHomePage({sendMembersData}){
+function MembersHomePage({sendMembersData, functionToDeleteMembers}){
 
   const membersList = sendMembersData.map((eachMember)=>
       <MemberProfileCard key={eachMember.id} eachMember={eachMember}
+                          functionToDeleteMembers={functionToDeleteMembers}
       /> 
       );
   return(

@@ -1,7 +1,6 @@
-import { useState } from "react";
+// import { useState } from "react";
 import styled from "styled-components";
 
-import NavFormBar from "./navFormBar";
 import ProjectCard from "./projectCard";
 import ProjectPreview from "./projectPreview";
 
@@ -13,19 +12,23 @@ const Container = styled.div`
 
 `
 
-function LandingPage({ sendProjectsData, tasksData}) {
-  const [openFullProject, setOpenFullProject] = useState(true);
+function LandingPage({ sendProjectsData, tasksData, functionToDeleteProjects, functiontToDeleteTasks}) {
+  // const [openFullProject, setOpenFullProject] = useState(true);
 
-  function displayFullCards() {
-    setOpenFullProject(!openFullProject);
-  }
+  // function displayFullCards() {
+  //   setOpenFullProject(!openFullProject);
+  // }
 
   const handleClick = (event) => {
     console.log(sendProjectsData[0]);
   };
 
   const projectList = sendProjectsData.map((eachProject) => (
-    <ProjectPreview key={eachProject.id} eachProject={eachProject} />
+    <ProjectPreview key={eachProject.id} 
+                  eachProject={eachProject}
+                  functionToDeleteProjects={functionToDeleteProjects}
+                  functiontToDeleteTasks={functiontToDeleteTasks} 
+    />
   ));
 
   return (

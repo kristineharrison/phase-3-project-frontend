@@ -49,6 +49,13 @@ function App(){
       body: JSON.stringify(newProject),
     });
   }
+  function DeleteProject(id){
+    console.log(id)
+    setProjectsData(previousProjects => {
+      const filteredProjectsbyID = previousProjects.filter(project => project.id !== id)
+      return filteredProjectsbyID
+    })
+  }
 
   useEffect(() => {
     fetch("http://localhost:9292/business")
@@ -66,6 +73,13 @@ function App(){
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBusiness),
     });
+  }
+  function DeleteBusiness(id){
+    console.log(id)
+    setBusinessData(previousBusiness => {
+      const filteredBusinessbyID = previousBusiness.filter(business => business.id !== id)
+      return filteredBusinessbyID
+    })
   }
 
   useEffect(() => {
@@ -85,6 +99,7 @@ function App(){
       body: JSON.stringify(newTeam),
     });
   }
+  
 
   useEffect(() => {
     fetch("http://localhost:9292/tasks")
@@ -94,7 +109,6 @@ function App(){
         setTasksData(fetchedData);
       });
   }, []);
-
   function addNewTask(newTask) {
     setTasksData([newTask, ...tasksData]);
 
@@ -103,6 +117,13 @@ function App(){
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTask),
     });
+  }
+  function DeleteTasks(id){
+    console.log(id)
+    setTasksData(previousTasks => {
+      const filteredTasksbyID = previousTasks.filter(task => task.id !== id)
+      return filteredTasksbyID
+    })
   }
 
   useEffect(() => {
@@ -121,6 +142,13 @@ function App(){
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newMember),
     });
+  }
+  function DeleteMembers(id){
+    console.log(id)
+    setMembersData(previousMember => {
+      const filteredMemberbyID = previousMember.filter(member => member.id !== id)
+      return filteredMemberbyID
+    })
   }
 
   return (
@@ -145,6 +173,8 @@ function App(){
                       sendProjectsData={projectsData}
                       tasksData = {tasksData}
                       functionForAddingNewTask={addNewTask}
+                      DeleteProject={DeleteProject}
+                      functionToDeleteTasks={DeleteTasks}
                   />}
                 ></Route>
 
@@ -152,6 +182,8 @@ function App(){
                   <MembersLandingPage 
                     sendMembersData={membersData}
                     functionForAddingNewMember={addNewMember}
+                    functionToDeleteMembers={DeleteMembers}
+                    
                   />}
                 ></Route>
 
@@ -159,6 +191,7 @@ function App(){
                   <BusinessHomePage 
                     sendBusinessData={businessData}
                     functionForAddingNewBusiness={addNewBusiness}
+                    functionToDeleteBusiness={DeleteBusiness}
                   />}
                 ></Route>
 

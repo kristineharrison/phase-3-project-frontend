@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 import Tasks from "./tasks";
-import TeamMembers from "./teams";
 
 const Container = styled.div`
   width: 60%;
@@ -36,9 +34,6 @@ function ProjectCard({ sendProjectsData, tasksData }) {
           ))}
         </ul>
       </div>
-
-      <button className="button"> Update Project </button>
-      <button className="button"> Delete Project </button>
     </Container>
   );
 }

@@ -5,7 +5,16 @@ const Container = styled.div`
   }
 `;
 
-function MemberProfileCard({eachMember}){
+function MemberProfileCard({eachMember, functionToDeleteMembers}){
+
+  function deleteClick(){
+    fetch(`http://localhost:9292/projects/${eachMember.id}`, {
+      method:"DELETE"
+    })
+    .then(res =>res.json())
+    .then(()=> functionToDeleteMembers(eachMember.id))
+  }
+
   return(
       <Container>
           <p> Name: {eachMember.name} </p>
@@ -14,6 +23,7 @@ function MemberProfileCard({eachMember}){
           <div class="projects-list">
               <li> "List of projects theyre on" </li>
           </div>
+          <button onClick={deleteClick}> Delete Member </button>
       </Container>
   );
 }

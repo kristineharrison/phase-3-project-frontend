@@ -4,8 +4,16 @@ const Container = styled.div`
 
 `
 
-function BusinessCards({eachBusiness}){
+function BusinessCards({eachBusiness, functionToDeleteBusiness}){
     // console.log("This is the cards", eachBusiness)
+        function deleteClick(){
+            fetch(`http://localhost:9292/business/${eachBusiness.id}`, {
+                method:"DELETE"
+            })
+            .then(res =>res.json())
+            .then(()=> functionToDeleteBusiness(eachBusiness.id))
+        }
+    
     return(
         <Container>
             <img 
@@ -21,6 +29,7 @@ function BusinessCards({eachBusiness}){
             <p> Phone: {eachBusiness.phone}</p>
             {/* <p> Current Projects </p>
                 <li>"Project Names" </li> */}
+            <button onClick={deleteClick}>Delete</button>
         </Container>
     )
 }
