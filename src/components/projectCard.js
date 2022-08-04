@@ -4,22 +4,12 @@ import Tasks from "./tasks";
 import TeamMembers from "./teams";
 
 const Container = styled.div`
-  .team {
-  }
-
-  .details {
-  }
-
-  .task-list {
-  }
-
-  .button {
-  }
+  width: 60%;
+  display: flex;
+  flex-direction: column;
 `;
 
-function ProjectCard({sendProjectsData, tasksData}) {
-
-  
+function ProjectCard({ sendProjectsData, tasksData }) {
   return (
     <Container>
       <h1>{sendProjectsData.name}</h1>
@@ -46,14 +36,9 @@ function ProjectCard({sendProjectsData, tasksData}) {
         <h4> Tasks:</h4>
         <ul>
           {tasksData.map((eachTask) => (
-            <Tasks
-              key={eachTask.id}
-              eachTask={eachTask}
-
-            />
-           ))}
+            <Tasks key={eachTask.id} eachTask={eachTask} />
+          ))}
         </ul>
-        
       </div>
 
       <button className="button"> Update Project </button>
