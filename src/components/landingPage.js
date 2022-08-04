@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-function LandingPage({ sendProjectsData, tasksData }) {
+function LandingPage({ sendProjectsData, tasksData}) {
   const [openFullProject, setOpenFullProject] = useState(true);
 
   function displayFullCards() {

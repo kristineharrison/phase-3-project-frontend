@@ -10,7 +10,6 @@ import LandingPagesNavBar from './components/landingPagesNavBar'
 
 
 const Container = styled.div`
-  
 
 `
 
@@ -42,7 +41,7 @@ function App(){
   useEffect(()=>{
     fetch('http://localhost:9292/business')
     .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
+    .then ((fetchedData)=> {(console.log("Businesses: ",fetchedData))
                             setBusinessData(fetchedData)})
     }, [])
   function addNewBusiness(newBusiness){
@@ -59,10 +58,11 @@ function App(){
   useEffect(()=>{
     fetch('http://localhost:9292/teams')
     .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
+    .then ((fetchedData)=> {(console.log("Teams: ",fetchedData))
                             setTeamsData(fetchedData)})
     }, [])
   function addNewTeam(newTeam){
+    console.log("Thhis is the function", newTeam)
     setTeamsData([newTeam, ...teamsData])
 
     fetch("http://localhost:9292/teams", {
@@ -70,6 +70,10 @@ function App(){
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTeam),
     });
+  }
+
+  function toodles(hello){
+    console.log("hello")
   }
 
   useEffect(()=>{
@@ -92,7 +96,7 @@ function App(){
   useEffect(()=>{
     fetch('http://localhost:9292/members')
     .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
+    .then ((fetchedData)=> {(console.log("Members:",fetchedData))
                             setMembersData(fetchedData)})
     }, [])
   function addNewMember(newMember){
@@ -107,42 +111,41 @@ function App(){
 
   return (
     <Container>
-      < NavFormBar
+      <div className="heading"> 
+        <NavFormBar
         functionForAddingNewBusiness={addNewBusiness}
+        // functionForAddingNewTeam={toodles}
         functionForAddingNewTeam={addNewTeam}
         functionForAddingNewTask={addNewTask}
         functionForAddingNewMember={addNewMember}
         functionForAddingNewProject={addNewProject}
 
-      />
-      {/* NAVFORMBAR WORKS SORTOF */}
-      <LandingPagesNavBar />
-      <div class="landing-page-routes">
+        />
+        <LandingPagesNavBar />
+      </div>
+      <div className="landing-page-routes">
                 {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
               <Routes>
                 <Route path="/" element={
                     <LandingPage 
                       sendProjectsData={projectsData}
                       tasksData = {tasksData}
-                      functionForAddingNewBusiness={addNewBusiness}
-                      functionForAddingNewTeam={addNewTeam}
                       functionForAddingNewTask={addNewTask}
-                      functionForAddingNewMember={addNewMember}
                   />}
                 ></Route>
 
                 <Route path="/members" element={
                   <MembersLandingPage 
                     sendMembersData={membersData}
-                  />
-                }
+                    functionForAddingNewMember={addNewMember}
+                  />}
                 ></Route>
 
                 <Route path="/businesses" element={
                   <BusinessLandingPage 
                     sendBusinessData={businessData}
-                  />
-                }
+                    functionForAddingNewBusiness={addNewBusiness}
+                  />}
                 ></Route>
 
               </Routes>

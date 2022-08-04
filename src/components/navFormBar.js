@@ -15,6 +15,8 @@ function NavFormBar({functionForAddingNewBusiness,
                         functionForAddingNewMember,
                         functionForAddingNewProject}){
 
+    console.log(functionForAddingNewTeam)
+
     const [openformNav, closeformNav] = useState(false)
     const [openBusinessForm, closeBusinessForm] = useState(false)
     const [openProjectForm, closeProjectForm] = useState(false)

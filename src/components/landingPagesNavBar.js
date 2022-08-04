@@ -8,13 +8,13 @@ const Container = styled.div`
 function PagesNavBar(){
     return(
         <Container>
-            <Link to="/" class='link'>
+            <Link to="/" className='link'>
                 Projects
             </Link>
-            <Link to="/members" class="links">
+            <Link to="/members" className="links">
                 Members
             </Link>
-            <Link to="businesses" class='link'>
+            <Link to="businesses" className='link'>
                 Businesses
             </Link>
         </Container>

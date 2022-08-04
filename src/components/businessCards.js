@@ -4,19 +4,19 @@ const Container = styled.div`
 
 `
 
-function BusinessCards (){
+function BusinessCards({eachBusiness}){
     return(
         <Container>
             <img 
-                src="somesortofURL"
-                alt="Business Name"
+                src={eachBusiness.logo_url}
+                alt={eachBusiness.name}
                 />
-            <h3> "Business Name" </h3>
-            <p>"Primary Contact</p>
-            <p>"Working with Team"</p>
-            <p> Current Projects </p>
-                <li>"Project Names" </li>
-
+            <p> Name:{eachBusiness.name} </p>
+            <p>Point of Contact: {eachBusiness.contact_name}</p>
+            <p> Email: {eachBusiness.email}</p>
+            <p> Phone: {eachBusiness.phone}</p>
+            {/* <p> Current Projects </p>
+                <li>"Project Names" </li> */}
         </Container>
     )
 }

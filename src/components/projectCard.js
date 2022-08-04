@@ -27,11 +27,6 @@ function ProjectCard({ sendProjectsData, tasksData }) {
         <h6> Due Date: </h6>
         <p>{sendProjectsData.due_date}</p>
         <br />
-        {/* <h6> Task Priority</h6>
-        <ul>
-          <li> "priority task from tasks" </li>
-          <li> "priority tasks form tasks" </li>
-        </ul> */}
       </div>
       <div className="task-list">
         <h4> Tasks:</h4>
