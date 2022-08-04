@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom'
 
 import LandingPage from './components/landingPage';
 import MembersLandingPage from './components/membersLandingPage'
-import BusinessLandingPage from './components/businessLandingPage'
+import BusinessHomePage from './components/businessLandingPage'
 import NavFormBar from './components/navFormBar'
 import LandingPagesNavBar from './components/landingPagesNavBar'
 
@@ -142,7 +142,7 @@ function App(){
                 ></Route>
 
                 <Route path="/businesses" element={
-                  <BusinessLandingPage 
+                  <BusinessHomePage 
                     sendBusinessData={businessData}
                     functionForAddingNewBusiness={addNewBusiness}
                   />}

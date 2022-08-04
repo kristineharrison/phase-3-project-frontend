@@ -5,11 +5,15 @@ const Container = styled.div`
 `
 
 function BusinessCards({eachBusiness}){
+    // console.log("This is the cards", eachBusiness)
     return(
         <Container>
             <img 
                 src={eachBusiness.logo_url}
                 alt={eachBusiness.name}
+                quality={100}
+                height={100}
+                width={100}
                 />
             <p> Name:{eachBusiness.name} </p>
             <p>Point of Contact: {eachBusiness.contact_name}</p>
