@@ -1,69 +1,69 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components'
-import {Routes, Route} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
 
-import LandingPage from './components/landingPage';
-import MembersLandingPage from './components/membersLandingPage'
-import BusinessLandingPage from './components/businessLandingPage'
-import NavFormBar from './components/navFormBar'
-import LandingPagesNavBar from './components/landingPagesNavBar'
+import LandingPage from "./components/landingPage";
+import MembersLandingPage from "./components/membersLandingPage";
+import BusinessLandingPage from "./components/businessLandingPage";
+import NavFormBar from "./components/navFormBar";
+import LandingPagesNavBar from "./components/landingPagesNavBar";
 
+const Container = styled.div``;
 
-const Container = styled.div`
+function App() {
+  const [projectsData, setProjectsData] = useState([]);
+  const [businessData, setBusinessData] = useState([]);
+  const [teamsData, setTeamsData] = useState([]);
+  const [tasksData, setTasksData] = useState([]);
+  const [membersData, setMembersData] = useState([]);
 
-`
+  useEffect(() => {
+    fetch("http://localhost:9292/projects")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log("projects: ", fetchedData);
+        setProjectsData(fetchedData);
+      });
+  }, []);
 
-function App(){
+  function addNewProject(newProject) {
+    setProjectsData([newProject, ...projectsData]);
 
-  const [projectsData, setProjectsData] = useState([])
-  const [businessData, setBusinessData] = useState([])
-  const [teamsData, setTeamsData] = useState([])
-  const [tasksData, setTasksData] = useState([])
-  const [membersData, setMembersData] = useState([])
-
-  useEffect(()=>{
-    fetch('http://localhost:9292/projects')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("projects: ",fetchedData))
-                            setProjectsData(fetchedData)})
-    }, [])
-
-  function addNewProject(newProject){
-    setProjectsData([newProject, ...projectsData])
-
-    fetch('http://localhost:9292/projects', {
+    fetch("http://localhost:9292/projects", {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newProject)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProject),
+    });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/business')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Businesses: ",fetchedData))
-                            setBusinessData(fetchedData)})
-    }, [])
-  function addNewBusiness(newBusiness){
-    setBusinessData([newBusiness, ...businessData])
+  useEffect(() => {
+    fetch("http://localhost:9292/business")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setBusinessData(fetchedData);
+      });
+  }, []);
+  function addNewBusiness(newBusiness) {
+    setBusinessData([newBusiness, ...businessData]);
 
-    fetch('http://localhost:9292/business', {
-
+    fetch("http://localhost:9292/business", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBusiness),
     });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/teams')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Teams: ",fetchedData))
-                            setTeamsData(fetchedData)})
-    }, [])
-  function addNewTeam(newTeam){
-    console.log("Thhis is the function", newTeam)
-    setTeamsData([newTeam, ...teamsData])
+  useEffect(() => {
+    fetch("http://localhost:9292/teams")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setTeamsData(fetchedData);
+      });
+  }, []);
+  function addNewTeam(newTeam) {
+    setTeamsData([newTeam, ...teamsData]);
 
     fetch("http://localhost:9292/teams", {
       method: "POST",
@@ -72,19 +72,17 @@ function App(){
     });
   }
 
-  function toodles(hello){
-    console.log("hello")
-  }
+  useEffect(() => {
+    fetch("http://localhost:9292/tasks")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log("Tasks: ", fetchedData);
+        setTasksData(fetchedData);
+      });
+  }, []);
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/tasks')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Tasks: ", fetchedData))
-                            setTasksData(fetchedData)})
-    }, [])
-
-  function addNewTask(newTask){
-    setTasksData([newTask, ...tasksData])
+  function addNewTask(newTask) {
+    setTasksData([newTask, ...tasksData]);
 
     fetch("http://localhost:9292/tasks", {
       method: "POST",
@@ -93,14 +91,16 @@ function App(){
     });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/members')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Members:",fetchedData))
-                            setMembersData(fetchedData)})
-    }, [])
-  function addNewMember(newMember){
-    setMembersData([newMember, ...membersData])
+  useEffect(() => {
+    fetch("http://localhost:9292/members")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setMembersData(fetchedData);
+      });
+  }, []);
+  function addNewMember(newMember) {
+    setMembersData([newMember, ...membersData]);
 
     fetch("http://localhost:9292/members", {
       method: "POST",
@@ -111,48 +111,46 @@ function App(){
 
   return (
     <Container>
-      <div className="heading"> 
-        <NavFormBar
+      <NavFormBar
         functionForAddingNewBusiness={addNewBusiness}
         // functionForAddingNewTeam={toodles}
         functionForAddingNewTeam={addNewTeam}
         functionForAddingNewTask={addNewTask}
         functionForAddingNewMember={addNewMember}
         functionForAddingNewProject={addNewProject}
-
-        />
-        <LandingPagesNavBar />
-      </div>
+      />
+      {/* NAVFORMBAR WORKS SORTOF */}
+      <LandingPagesNavBar />
       <div className="landing-page-routes">
-                {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
-              <Routes>
-                <Route path="/" element={
-                    <LandingPage 
-                      sendProjectsData={projectsData}
-                      tasksData = {tasksData}
-                      functionForAddingNewTask={addNewTask}
-                  />}
-                ></Route>
+        {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LandingPage
+                sendProjectsData={projectsData}
+                tasksData={tasksData}
+                functionForAddingNewBusiness={addNewBusiness}
+                functionForAddingNewTeam={addNewTeam}
+                functionForAddingNewTask={addNewTask}
+                functionForAddingNewMember={addNewMember}
+              />
+            }
+          ></Route>
 
-                <Route path="/members" element={
-                  <MembersLandingPage 
-                    sendMembersData={membersData}
-                    functionForAddingNewMember={addNewMember}
-                  />}
-                ></Route>
+          <Route
+            path="/members"
+            element={<MembersLandingPage sendMembersData={membersData} />}
+          ></Route>
 
-                <Route path="/businesses" element={
-                  <BusinessLandingPage 
-                    sendBusinessData={businessData}
-                    functionForAddingNewBusiness={addNewBusiness}
-                  />}
-                ></Route>
-
-              </Routes>
-            </div>
-
+          <Route
+            path="/businesses"
+            element={<BusinessLandingPage sendBusinessData={businessData} />}
+          ></Route>
+        </Routes>
+      </div>
     </Container>
-  )
+  );
 }
 
-export default App
+export default App;
