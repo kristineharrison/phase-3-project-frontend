@@ -18,23 +18,9 @@ const Container = styled.div`
   }
 `;
 
-function projects({sendProjectsData, tasksData }) {
-  // const [newlyUpdatedProject, setNewlyUpdatedProject] = useState()
+function ProjectCard({sendProjectsData, tasksData}) {
 
   
-  // function updateproject(){
-  //   const updatedProject ={
-  //     method: "PATCH",
-  //     headers: {"Content-Type":"application/json"},
-  //     bpdy: JSON.stringify{}
-  //   }
-
-  //     fetch('http://localhost:9292/projects/${sendingProjectsData.id}', updatedProject)
-  //     .then( res => res.json)
-  //     .then (data => )
-  // }
-
-
   return (
     <Container>
       <h1>{sendProjectsData.name}</h1>
@@ -66,7 +52,7 @@ function projects({sendProjectsData, tasksData }) {
               eachTask={eachTask}
 
             />
-          ))}
+           ))}
         </ul>
         
       </div>
@@ -76,4 +62,4 @@ function projects({sendProjectsData, tasksData }) {
     </Container>
   );
 }
-export default projects;
+export default ProjectCard;
