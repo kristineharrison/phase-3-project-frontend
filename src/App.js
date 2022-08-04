@@ -22,6 +22,12 @@ function App(){
   const [tasksData, setTasksData] = useState([])
   const [membersData, setMembersData] = useState([])
 
+  const [updateProjects, setUpdateProjects] = useState([])
+  const [updateBusiness, setUpdateBusiness] = useState([])
+  const [updateTeams, setUpdateTeams]  = useState([])
+  const [updateTasks, setUpdateTasks] = useState([])
+  const [updateMembers, setUpdateMembers] = useState([])
+
   useEffect(()=>{
     fetch('http://localhost:9292/projects')
     .then(res => res.json())
@@ -37,6 +43,17 @@ function App(){
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(newProject)
   })
+  }
+  function updateProj(updatedProj){
+    //const updatedProj={}
+      fetch('http://localhost:9292/projects/${updateProjects}', {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedProj)
+      }
+  )
+    .then((resp) => resp.json())
+    .then(setUpdateProjects) 
   }
 
   useEffect(()=>{
@@ -55,6 +72,17 @@ function App(){
       body: JSON.stringify(newBusiness),
     });
   }
+  function updateBus(updatedBus){
+    //const updatedProj={}
+      fetch('http://localhost:9292/projects/${updateBusiness}', {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedBus)
+      }
+  )
+    .then((resp) => resp.json())
+    .then(setUpdateBusiness) 
+  }
 
   useEffect(()=>{
     fetch('http://localhost:9292/teams')
@@ -70,6 +98,17 @@ function App(){
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTeam),
     });
+  }
+  function updateTeam(updatedTeam){
+    //const updatedTeam={}
+      fetch('http://localhost:9292/projects/${updateTeams}', {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedTeam)
+      }
+  )
+    .then((resp) => resp.json())
+    .then(setUpdateTeams) 
   }
 
   useEffect(()=>{
@@ -88,6 +127,17 @@ function App(){
       body: JSON.stringify(newTask),
     });
   }
+  function updateTask(updatedTask){
+    //const updatedTask={}
+      fetch('http://localhost:9292/projects/${updateTasks}', {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedTask)
+      }
+  )
+    .then((resp) => resp.json())
+    .then(setUpdateTasks) 
+  }
 
   useEffect(()=>{
     fetch('http://localhost:9292/members')
@@ -104,6 +154,17 @@ function App(){
       body: JSON.stringify(newMember),
     });
   }
+  function updateMem(updatedMem){
+    //const updatedMem={}
+      fetch('http://localhost:9292/projects/${updateMembers}', {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedMem)
+      }
+  )
+    .then((resp) => resp.json())
+    .then(setUpdateMembers) 
+  }
 
   return (
     <Container>
@@ -113,6 +174,8 @@ function App(){
         functionForAddingNewTask={addNewTask}
         functionForAddingNewMember={addNewMember}
         functionForAddingNewProject={addNewProject}
+        sendingBusinessData={businessData}
+        
 
       />
       {/* NAVFORMBAR WORKS SORTOF */}
@@ -128,12 +191,17 @@ function App(){
                       functionForAddingNewTeam={addNewTeam}
                       functionForAddingNewTask={addNewTask}
                       functionForAddingNewMember={addNewMember}
+                      //tasks, updateProj
+                      functionToUpdateProjects = {updateProj}
+                      functionToUpdateTasks = {updateTask}
                   />}
                 ></Route>
 
                 <Route path="/members" element={
                   <MembersLandingPage 
                     sendMembersData={membersData}
+                    //update mem
+                    functionToUpdateMembers = {updateMem}
                   />
                 }
                 ></Route>
@@ -141,6 +209,8 @@ function App(){
                 <Route path="/businesses" element={
                   <BusinessLandingPage 
                     sendBusinessData={businessData}
+                    // update bus
+                    functionToUpdateBus={updateBus}
                   />
                 }
                 ></Route>

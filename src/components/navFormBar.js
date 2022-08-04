@@ -13,13 +13,17 @@ const Container = styled.div`
 function NavFormBar({functionForAddingNewBusiness,
                         functionForAddingNewTeam,
                         functionForAddingNewMember,
-                        functionForAddingNewProject}){
+                        functionForAddingNewProject,
+                        sendingBusinessData
+                        }){
 
     const [openformNav, closeformNav] = useState(false)
     const [openBusinessForm, closeBusinessForm] = useState(false)
     const [openProjectForm, closeProjectForm] = useState(false)
     const [openMemberForm, closeMemberForm] = useState(false)
     const [openTeamForm, closeTeamForm] = useState(false)
+
+    
 
 
 
@@ -35,7 +39,7 @@ function NavFormBar({functionForAddingNewBusiness,
                         <h6 onClick={()=> {closeMemberForm(!openMemberForm)}} > Add New Member</h6>
                             {openMemberForm? <NewMemberForm functionForAddingNewMember={functionForAddingNewMember}/> : null}
                         <h6 onClick={()=> {closeProjectForm(!openProjectForm)}} > Add New Project</h6>
-                            {openProjectForm? <NewProjectForm functionForAddingNewProject={functionForAddingNewProject}/> : null}
+                            {openProjectForm? <NewProjectForm functionForAddingNewProject={functionForAddingNewProject} sendingBusinessData ={sendingBusinessData} /> : null}
                         <h6 onClick={()=> {closeTeamForm(!openTeamForm)}} > Add New Team </h6>
                             {openTeamForm? <NewTeamForm functionForAddingNewTeam={functionForAddingNewTeam}/> : null}
                     </div>
