@@ -19,13 +19,17 @@ function LandingPage({ sendProjectsData, tasksData }) {
     setOpenFullProject(!openFullProject);
   }
 
+  const handleClick = (event) => {
+    console.log(sendProjectsData[0]);
+  };
+
   const projectList = sendProjectsData.map((eachProject) => (
     <ProjectPreview key={eachProject.id} eachProject={eachProject} />
   ));
 
   return (
     <div>
-      <h1> Project Manager </h1>
+      <h1 onClick={handleClick}> Project Manager </h1>
       <Container>
         {projectList}
 

@@ -1,20 +1,17 @@
-import styled from 'styled-components'
-import MemberProfileCard from './memberProfileCards'
+import styled from "styled-components";
+import MemberProfileCard from "./memberProfileCards";
 
 const Container = styled.div`
+  .member-cards {
+  }
+`;
 
-.member-cards{}
-
-`
-
-function MembersHomePage(){
-    return(
-        <Container>
-            <h1> Members Manager</h1>
-            < MemberProfileCard class="member-cards" />
-            
-
-        </Container>
-    )
+function MembersHomePage() {
+  return (
+    <Container>
+      <h1> Members Manager</h1>
+      <MemberProfileCard className="member-cards" />
+    </Container>
+  );
 }
-export default MembersHomePage
+export default MembersHomePage;
