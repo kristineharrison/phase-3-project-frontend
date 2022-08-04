@@ -116,15 +116,33 @@ function App(){
 
       />
       {/* NAVFORMBAR WORKS SORTOF */}
-            
-      <LandingPage 
-        sendProjectsData={projectsData}
-        tasksData = {tasksData}
-        functionForAddingNewBusiness={addNewBusiness}
-        functionForAddingNewTeam={addNewTeam}
-        functionForAddingNewTask={addNewTask}
-        functionForAddingNewMember={addNewMember}
-      />
+      <LandingPagesNavBar />
+      <div class="landing-page-routes">
+                {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
+              <Routes>
+                <Route path="/" element={
+                    <LandingPage 
+                      sendProjectsData={projectsData}
+                    tasksData = {tasksData}
+                    functionForAddingNewBusiness={addNewBusiness}
+                    functionForAddingNewTeam={addNewTeam}
+                    functionForAddingNewTask={addNewTask}
+                    functionForAddingNewMember={addNewMember}
+                  />}
+                ></Route>
+
+                <Route path="/members" element={
+                  <MembersLandingPage/>
+                  }
+                ></Route>
+
+                <Route path="/businesses" element={
+                  <BusinessLandingPage />
+                }
+                ></Route>
+
+              </Routes>
+            </div>
 
     </Container>
   )
