@@ -6,7 +6,7 @@ const Container = styled.div`
 
 `
 
-function MemberProfile(){
+function MemberProfileCard(){
     return(
         <Container>
             <p> Name: </p>
@@ -27,4 +27,4 @@ function MemberProfile(){
     )
 
 }
-export default MemberProfile
+export default MemberProfileCard

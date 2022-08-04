@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
+import {Routes, Route} from 'react-router-dom'
 
 import LandingPage from './components/landingPage';
+import MembersLandingPage from './components/membersLandingPage'
+import BusinessLandingPage from './components/businessLandingPage'
 import NavFormBar from './components/navFormBar'
+import LandingPagesNavBar from './components/landingPagesNavBar'
 
 
 const Container = styled.div`
@@ -104,20 +108,37 @@ function App(){
             < NavFormBar
                           functionForAddingNewBusiness={addNewBusiness}
                           functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
                           functionForAddingNewMember={addNewMember}
                           functionForAddingNewProject={addNewProject}
                 
                 />
-                {/* NAVFORMBAR WORKS SORTOF */}
+              <LandingPagesNavBar />
             
-            <LandingPage 
-                          sendingProjectData={projectsData}
-                          functionForAddingNewBusiness={addNewBusiness}
-                          functionForAddingNewTeam={addNewTeam}
-                          functionForAddingNewTask={addNewTask}
-                          functionForAddingNewMember={addNewMember}
-            />
+            <div class="landing-page-routes">
+                {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
+              <Routes>
+                <Route path="/" element={
+                  <LandingPage 
+                              sendingProjectData={projectsData}
+                              functionForAddingNewBusiness={addNewBusiness}
+                              functionForAddingNewTeam={addNewTeam}
+                              functionForAddingNewTask={addNewTask}
+                              functionForAddingNewMember={addNewMember}
+                />}
+                ></Route>
+
+                <Route path="/members" element={
+                  <MembersLandingPage/>
+                  }
+                ></Route>
+
+                <Route path="/businesses" element={
+                  <BusinessLandingPage />
+                }
+                ></Route>
+
+              </Routes>
+            </div>
 
     </Container>
   )

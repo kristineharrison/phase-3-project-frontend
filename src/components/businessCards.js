@@ -4,7 +4,7 @@ const Container = styled.div`
 
 `
 
-function BusinessProfile (){
+function BusinessCards (){
     return(
         <Container>
             <img 
@@ -20,4 +20,4 @@ function BusinessProfile (){
         </Container>
     )
 }
-export default BusinessProfile
+export default BusinessCards
