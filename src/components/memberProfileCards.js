@@ -5,22 +5,16 @@ const Container = styled.div`
   }
 `;
 
-function MemberProfileCard() {
-  return (
-    <Container>
-      <p> Name: </p>
-      <p> "Name from data" </p>
-      <by />
-      <p> Email: </p>
-      <p> "email from data" </p>
-      <br />
-      <p> On Team:</p>
-      <p> "On Team" </p>
-      <br />
-      <div className="projects-list">
-        <li> "List of projects theyre on" </li>
-      </div>
-    </Container>
+function MemberProfileCard({eachMember}){
+  return(
+      <Container>
+          <p> Name: {eachMember.name} </p>
+          <p> Skill: {eachMember.skill}</p>
+          <br/> 
+          <div class="projects-list">
+              <li> "List of projects theyre on" </li>
+          </div>
+      </Container>
   );
 }
 export default MemberProfileCard;

@@ -6,12 +6,19 @@ const Container = styled.div`
   }
 `;
 
-function MembersHomePage() {
-  return (
-    <Container>
-      <h1> Members Manager</h1>
-      <MemberProfileCard className="member-cards" />
-    </Container>
+function MembersHomePage({sendMembersData}){
+
+  const membersList = sendMembersData.map((eachMember)=>
+      <MemberProfileCard key={eachMember.id} eachMember={eachMember}
+      /> 
+      );
+  return(
+      <Container>
+          <h1> Members Manager</h1>
+          {membersList}
+
+
+      </Container>
   );
 }
 export default MembersHomePage;
