@@ -13,7 +13,7 @@ function ProjectPreview({eachProject}) {
             {/* on click upens this information */}
             <p>{eachProject.business.name}</p>
             <p>{eachProject.description}</p>
-            <p>**Need to figure out Team**</p>
+            <p>Team: {eachProject.team.team_name}</p>
         </Container>
     )
 }

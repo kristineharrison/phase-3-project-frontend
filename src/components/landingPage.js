@@ -22,34 +22,27 @@ function LandingPage({sendProjectsData, tasksData}){
         setOpenFullProject(!openFullProject)
     }
 
-//     const projectList = function() {
-//         sendProjectsData.map((eachProject) => (
-    
-//             <ProjectPreview
-//             key={eachProject.id}
-//             eachProject={eachProject}
-//             />
-//         )
-// )
-//     }
+    const projectList = sendProjectsData.map((eachProject) => (
+                        <ProjectPreview
+                        key={eachProject.id}
+                        eachProject={eachProject}
+                        />   
+    )
+    );
+     
 
     return(
         <Container>
             <h1> Project Manager </h1>
-            <ul>
-                {sendProjectsData.map((eachProject) => (
-                    <ProjectPreview
-                        key={eachProject.id}
-                        eachProject={eachProject}
-                    />
-                ))}
-            </ul>
+            {projectList}
 
-
-
-            {/* <div className="projectItems" onClick={displayFullCards}> 
-                {openFullProject? <ProjectPreview sendProjectsData={sendProjectsData}/> : <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData}/>}
+{/* 
+            <div className="projectItems" onClick={displayFullCards}> 
+                {openFullProject? 
+                    <ProjectPreview sendProjectsData={sendProjectsData}/> : 
+                    <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData}/>}
             </div> */}
+            
             <button className="bttn"> Create New Project </button> 
 
             <ProjectCard

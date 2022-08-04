@@ -74,6 +74,7 @@ function App(){
     .then ((fetchedData)=> {(console.log("Tasks: ", fetchedData))
                             setTasksData(fetchedData)})
     }, [])
+
   function addNewTask(newTask){
     setTasksData([newTask, ...tasksData])
 
