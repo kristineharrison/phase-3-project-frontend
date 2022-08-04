@@ -1,54 +1,45 @@
-import { useState } from 'react'
-import styled from 'styled-components'
+import { useState } from "react";
+import styled from "styled-components";
 
-import NavFormBar from './navFormBar'
-import ProjectCard from './projectCard'
-import ProjectPreview from './projectPreview'
+import NavFormBar from "./navFormBar";
+import ProjectCard from "./projectCard";
+import ProjectPreview from "./projectPreview";
 
 const Container = styled.div`
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+`;
 
-.projectItems{ }
+function LandingPage({ sendProjectsData, tasksData }) {
+  const [openFullProject, setOpenFullProject] = useState(true);
 
-.bttn{ }
+  function displayFullCards() {
+    setOpenFullProject(!openFullProject);
+  }
 
-`
+  const projectList = sendProjectsData.map((eachProject) => (
+    <ProjectPreview key={eachProject.id} eachProject={eachProject} />
+  ));
 
+  return (
+    <div>
+      <h1> Project Manager </h1>
+      <Container>
+        {projectList}
 
-function LandingPage({sendProjectsData, tasksData}){
-
-    const [openFullProject, setOpenFullProject]= useState(true)
-
-    function displayFullCards(){
-        setOpenFullProject(!openFullProject)
-    }
-
-    const projectList = sendProjectsData.map((eachProject) => (
-                        <ProjectPreview
-                        key={eachProject.id}
-                        eachProject={eachProject}
-                        />   
-    )
-    )
-
-    return(
-        <Container>
-            <h1> Project Manager </h1>
-            {projectList}
-
-            {/* 
+        {/* 
             <div className="projectItems" onClick={displayFullCards}> 
                 {openFullProject? 
                     <ProjectPreview sendProjectsData={sendProjectsData}/> : 
                     <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData}/>}
             </div> */}
-            
-            <button className="bttn"> Create New Project </button> 
+      </Container>
+      <button className="bttn"> Create New Project </button>
 
-            <ProjectCard
-                sendProjectsData={sendProjectsData}
-                tasksData={tasksData}
-                />
-        </Container>    
-    )
+      <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData} />
+    </div>
+  );
 }
-export default LandingPage
+export default LandingPage;
