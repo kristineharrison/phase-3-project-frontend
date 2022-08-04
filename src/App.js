@@ -1,3 +1,10 @@
+// colors to use
+//  white for main background
+//  bluish for accents (#75B9BE)
+//  charcole for text (383F51)
+//  silver pink for background accents (#D$B3B3)
+
+
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import {Routes, Route} from 'react-router-dom'
@@ -10,7 +17,12 @@ import LandingPagesNavBar from './components/landingPagesNavBar'
 
 
 const Container = styled.div`
+  color: #383f51;
+  background-color: white;
 
+  .heading{
+    border-bottom: solid 3px #75B9BE;
+  }
 `
 
 function App(){
@@ -42,7 +54,7 @@ function App(){
     fetch("http://localhost:9292/business")
       .then((res) => res.json())
       .then((fetchedData) => {
-        console.log(fetchedData);
+        console.log( "Businesses:",fetchedData);
         setBusinessData(fetchedData);
       });
   }, []);
@@ -60,7 +72,7 @@ function App(){
     fetch("http://localhost:9292/teams")
       .then((res) => res.json())
       .then((fetchedData) => {
-        console.log(fetchedData);
+        console.log("Teams:", fetchedData);
         setTeamsData(fetchedData);
       });
   }, []);
@@ -97,7 +109,7 @@ function App(){
     fetch("http://localhost:9292/members")
       .then((res) => res.json())
       .then((fetchedData) => {
-        console.log(fetchedData);
+        console.log("members:", fetchedData);
         setMembersData(fetchedData);
       });
   }, []);
@@ -113,16 +125,18 @@ function App(){
 
   return (
     <Container>
-      <NavFormBar
-        functionForAddingNewBusiness={addNewBusiness}
-        // functionForAddingNewTeam={toodles}
-        functionForAddingNewTeam={addNewTeam}
-        functionForAddingNewTask={addNewTask}
-        functionForAddingNewMember={addNewMember}
-        functionForAddingNewProject={addNewProject}
-      />
-      {/* NAVFORMBAR WORKS SORTOF */}
-      <LandingPagesNavBar />
+      <div className="heading"> 
+        <NavFormBar
+          functionForAddingNewBusiness={addNewBusiness}
+          // functionForAddingNewTeam={toodles}
+          functionForAddingNewTeam={addNewTeam}
+          functionForAddingNewTask={addNewTask}
+          functionForAddingNewMember={addNewMember}
+          functionForAddingNewProject={addNewProject}
+        />
+        {/* NAVFORMBAR WORKS SORTOF */}
+        <LandingPagesNavBar />
+      </div>
       <div className="landing-page-routes">
                 {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
               <Routes>
