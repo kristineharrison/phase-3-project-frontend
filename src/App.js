@@ -123,21 +123,25 @@ function App(){
                 <Route path="/" element={
                     <LandingPage 
                       sendProjectsData={projectsData}
-                    tasksData = {tasksData}
-                    functionForAddingNewBusiness={addNewBusiness}
-                    functionForAddingNewTeam={addNewTeam}
-                    functionForAddingNewTask={addNewTask}
-                    functionForAddingNewMember={addNewMember}
+                      tasksData = {tasksData}
+                      functionForAddingNewBusiness={addNewBusiness}
+                      functionForAddingNewTeam={addNewTeam}
+                      functionForAddingNewTask={addNewTask}
+                      functionForAddingNewMember={addNewMember}
                   />}
                 ></Route>
 
                 <Route path="/members" element={
-                  <MembersLandingPage/>
-                  }
+                  <MembersLandingPage 
+                    sendMembersData={membersData}
+                  />
+                }
                 ></Route>
 
                 <Route path="/businesses" element={
-                  <BusinessLandingPage />
+                  <BusinessLandingPage 
+                    sendBusinessData={businessData}
+                  />
                 }
                 ></Route>
 
