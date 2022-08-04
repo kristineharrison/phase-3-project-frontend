@@ -33,37 +33,39 @@ function App(){
 
     fetch('http://localhost:9292/projects', {
       method: "POST",
-      headers: {"Content-Type": "application/json" },
-      body: JSON.stringify(newProject)
-  })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProject),
+    });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/business')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Businesses: ",fetchedData))
-                            setBusinessData(fetchedData)})
-    }, [])
-  function addNewBusiness(newBusiness){
-    setBusinessData([newBusiness, ...businessData])
+  useEffect(() => {
+    fetch("http://localhost:9292/business")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setBusinessData(fetchedData);
+      });
+  }, []);
+  function addNewBusiness(newBusiness) {
+    setBusinessData([newBusiness, ...businessData]);
 
-    fetch('http://localhost:9292/business', {
-
+    fetch("http://localhost:9292/business", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBusiness),
     });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/teams')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Teams: ",fetchedData))
-                            setTeamsData(fetchedData)})
-    }, [])
-  function addNewTeam(newTeam){
-    console.log("Thhis is the function", newTeam)
-    setTeamsData([newTeam, ...teamsData])
+  useEffect(() => {
+    fetch("http://localhost:9292/teams")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setTeamsData(fetchedData);
+      });
+  }, []);
+  function addNewTeam(newTeam) {
+    setTeamsData([newTeam, ...teamsData]);
 
     fetch("http://localhost:9292/teams", {
       method: "POST",
@@ -72,19 +74,17 @@ function App(){
     });
   }
 
-  function toodles(hello){
-    console.log("hello")
-  }
+  useEffect(() => {
+    fetch("http://localhost:9292/tasks")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log("Tasks: ", fetchedData);
+        setTasksData(fetchedData);
+      });
+  }, []);
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/tasks')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Tasks: ", fetchedData))
-                            setTasksData(fetchedData)})
-    }, [])
-
-  function addNewTask(newTask){
-    setTasksData([newTask, ...tasksData])
+  function addNewTask(newTask) {
+    setTasksData([newTask, ...tasksData]);
 
     fetch("http://localhost:9292/tasks", {
       method: "POST",
@@ -93,14 +93,16 @@ function App(){
     });
   }
 
-  useEffect(()=>{
-    fetch('http://localhost:9292/members')
-    .then(res => res.json())
-    .then ((fetchedData)=> {(console.log("Members:",fetchedData))
-                            setMembersData(fetchedData)})
-    }, [])
-  function addNewMember(newMember){
-    setMembersData([newMember, ...membersData])
+  useEffect(() => {
+    fetch("http://localhost:9292/members")
+      .then((res) => res.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        setMembersData(fetchedData);
+      });
+  }, []);
+  function addNewMember(newMember) {
+    setMembersData([newMember, ...membersData]);
 
     fetch("http://localhost:9292/members", {
       method: "POST",
@@ -111,18 +113,16 @@ function App(){
 
   return (
     <Container>
-      <div className="heading"> 
-        <NavFormBar
+      <NavFormBar
         functionForAddingNewBusiness={addNewBusiness}
         // functionForAddingNewTeam={toodles}
         functionForAddingNewTeam={addNewTeam}
         functionForAddingNewTask={addNewTask}
         functionForAddingNewMember={addNewMember}
         functionForAddingNewProject={addNewProject}
-
-        />
-        <LandingPagesNavBar />
-      </div>
+      />
+      {/* NAVFORMBAR WORKS SORTOF */}
+      <LandingPagesNavBar />
       <div className="landing-page-routes">
                 {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
               <Routes>
@@ -152,7 +152,7 @@ function App(){
             </div>
 
     </Container>
-  )
+  );
 }
 
-export default App
+export default App;

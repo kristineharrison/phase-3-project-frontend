@@ -12,11 +12,11 @@ const Card = styled.div`
 
 function ProjectPreview({ eachProject }) {
   return (
-    <Card>
+    <Card onClick={() => console.log(eachProject)}>
       <h3>{eachProject.name}</h3>
       <img
         src={eachProject.business.logo_url}
-        style={{ width: "100px" }}
+        style={{ width: "150px" }}
         alt={eachProject.business.name}
       />
       <h6>{eachProject.due_date}</h6>
