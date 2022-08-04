@@ -18,7 +18,9 @@ const Container = styled.div`
   }
 `;
 
-function projects({sendProjectsData, tasksData }) {
+
+function ProjectCard({sendProjectsData, tasksData}) {
+
   // const [newlyUpdatedProject, setNewlyUpdatedProject] = useState()
 
   
@@ -33,7 +35,6 @@ function projects({sendProjectsData, tasksData }) {
   //     .then( res => res.json)
   //     .then (data => )
   // }
-
 
   return (
     <Container>
@@ -66,7 +67,10 @@ function projects({sendProjectsData, tasksData }) {
               eachTask={eachTask}
 
             />
+
+           ))}
           ))}
+
         </ul>
         
       </div>
@@ -76,4 +80,4 @@ function projects({sendProjectsData, tasksData }) {
     </Container>
   );
 }
-export default projects;
+export default ProjectCard;

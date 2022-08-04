@@ -10,7 +10,7 @@ import LandingPagesNavBar from './components/landingPagesNavBar'
 
 
 const Container = styled.div`
-
+  
 
 `
 
@@ -25,9 +25,10 @@ function App(){
   useEffect(()=>{
     fetch('http://localhost:9292/projects')
     .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
+    .then ((fetchedData)=> {(console.log("projects: ",fetchedData))
                             setProjectsData(fetchedData)})
     }, [])
+
   function addNewProject(newProject){
     setProjectsData([newProject, ...projectsData])
 
@@ -74,9 +75,10 @@ function App(){
   useEffect(()=>{
     fetch('http://localhost:9292/tasks')
     .then(res => res.json())
-    .then ((fetchedData)=> {(console.log(fetchedData))
+    .then ((fetchedData)=> {(console.log("Tasks: ", fetchedData))
                             setTasksData(fetchedData)})
     }, [])
+
   function addNewTask(newTask){
     setTasksData([newTask, ...tasksData])
 

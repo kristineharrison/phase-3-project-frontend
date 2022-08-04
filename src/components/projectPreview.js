@@ -3,9 +3,7 @@ import styled from 'styled-components'
 const Container = styled.div`
 
 `
-
-function ProjectCard({eachProject}){
-
+function ProjectPreview({eachProject}) {
 
     return(
         <Container>
@@ -14,6 +12,7 @@ function ProjectCard({eachProject}){
                 style={{width: '300px'}} 
                 alt={eachProject.business.name} 
                 />
+
             <h6>{eachProject.due_date}</h6>
             {/* on click upens this information */}
             <p>{eachProject.business.name}</p>
@@ -22,4 +21,4 @@ function ProjectCard({eachProject}){
         </Container>
     )
 }
-export default ProjectCard
+export default ProjectPreview;
