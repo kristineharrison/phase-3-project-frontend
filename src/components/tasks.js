@@ -7,25 +7,27 @@ const Container = styled.div`
 `;
 // function so that when the completed button is clicked it becomes more faded
 
-function Tasks() {
+function Tasks({eachTask}) {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked(!checked);
   };
 
+ 
   return (
     <Container>
-      <p> "Task Name" </p>
-      <p> "Task Skills"</p>
-      <p> "Task Description" </p>
+
+      <p>Name: {eachTask.name} </p>
+      <p>Skills: {eachTask.skills}</p>
+      <p>{eachTask.description}</p>
 
       <label>
         <input type="checkbox" checked={checked} onChange={handleChange} />
         Completed
       </label>
-      <button class="button"> update </button>
-      <button class="button"> delete </button>
+      <button className="button"> update </button>
+      <button className="button"> delete </button>
     </Container>
   );
 }

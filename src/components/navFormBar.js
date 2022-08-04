@@ -26,11 +26,11 @@ function NavFormBar({functionForAddingNewBusiness,
 
     return(
         <Container>
-            <div class="nav-forms">
+            <div className="nav-forms">
                 <h4 onClick={()=> {closeformNav(!openformNav)}}> Forms Bar </h4>
 
                 { openformNav ? 
-                    <div class="forms">
+                    <div className="forms">
                         <h6 onClick={()=> {closeBusinessForm(!openBusinessForm)}} > Add New Business </h6>
                             {openBusinessForm? <NewBusinessForm functionForAddingNewBusiness={functionForAddingNewBusiness}/> : null}
                         <h6 onClick={()=> {closeMemberForm(!openMemberForm)}} > Add New Member</h6>
