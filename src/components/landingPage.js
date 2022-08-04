@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
+import NavFormBar from './navFormBar'
 import ProjectCard from './projectCard'
 import ProjectPreview from './projectPreview'
 
@@ -27,7 +28,7 @@ function LandingPage({sendProjectsData, tasksData}){
                         eachProject={eachProject}
                         />   
     )
-    );
+    )
 
     return(
         <Container>
@@ -47,7 +48,7 @@ function LandingPage({sendProjectsData, tasksData}){
                 sendProjectsData={sendProjectsData}
                 tasksData={tasksData}
                 />
-            </Container> 
-)
+        </Container>    
+    )
 }
 export default LandingPage
