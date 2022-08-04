@@ -12,7 +12,6 @@ const Container = styled.div`
 
 function NavFormBar({functionForAddingNewBusiness,
                         functionForAddingNewTeam,
-                        functionForAddingNewTask,
                         functionForAddingNewMember,
                         functionForAddingNewProject}){
 

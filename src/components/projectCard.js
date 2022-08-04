@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import Tasks from "./tasks";
 import TeamMembers from "./teams";
@@ -17,9 +18,24 @@ const Container = styled.div`
   }
 `;
 
+
 function ProjectCard({sendProjectsData, tasksData}) {
 
+  // const [newlyUpdatedProject, setNewlyUpdatedProject] = useState()
+
   
+  // function updateproject(){
+  //   const updatedProject ={
+  //     method: "PATCH",
+  //     headers: {"Content-Type":"application/json"},
+  //     bpdy: JSON.stringify{}
+  //   }
+
+  //     fetch('http://localhost:9292/projects/${sendingProjectsData.id}', updatedProject)
+  //     .then( res => res.json)
+  //     .then (data => )
+  // }
+
   return (
     <Container>
       <h1>{sendProjectsData.name}</h1>
@@ -51,7 +67,10 @@ function ProjectCard({sendProjectsData, tasksData}) {
               eachTask={eachTask}
 
             />
+
            ))}
+          ))}
+
         </ul>
         
       </div>
