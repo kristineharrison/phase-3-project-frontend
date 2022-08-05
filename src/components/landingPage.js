@@ -15,6 +15,7 @@ const Container = styled.div`
   
   justify-content: space-around;
  
+ 
 `;
 
 function LandingPage({
@@ -39,7 +40,7 @@ function LandingPage({
 
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>Project Manager </h1><button className="bttn"> Create New Project </button>
+            <h1 style={{ textAlign: "center" }}>Project Manager </h1><button className="bttn" style={{float: "right", marginBottom: "10px"}}> Create New Project </button>
             <Container>{projectList}</Container>
         
         </div>

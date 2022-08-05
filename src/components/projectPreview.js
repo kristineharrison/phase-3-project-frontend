@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProjectCard from "./projectCard";
 
 const Card = styled.div`
-  width: 300px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   vertical-align: center;
@@ -14,6 +14,7 @@ const Card = styled.div`
 
 const ButtonNav = styled.div`
   display: flex;
+  align-items: flex-end;
   flex-direction: row;
   padding: 10px;
 `
@@ -32,11 +33,11 @@ function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
   return (
     <Card>
       <h3>Project Name: {eachProject.name}</h3>
-      <img
-        // src={eachProject.business.logo_url}
+      {/* <img
+        src={eachProject.business.logo_url}
         style={{ width: "200px" }}
-        // alt={eachProject.business.name}
-      />
+        alt={eachProject.business.name}
+      /> */}
       <h4>Due Date: {eachProject.due_date}</h4>
       {/* <p><strong>Client: </strong>{eachProject.business.name}</p> */}
       <p>{eachProject.description}</p>

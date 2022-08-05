@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
+  display: flex;
+ justify-content: center;
+  flex-direction: row;
 
 `
 const StyledLink= styled(Link)`
   color:#383F51;
   font-size: 20px;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  
+  padding: 10px;
   links:hover{
     color:#75b9be;
   }

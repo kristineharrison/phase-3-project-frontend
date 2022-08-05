@@ -29,7 +29,7 @@ const Container = styled.div`
   .not-project-list{
   }
   
-  button{
+  button {
     color: #383F51;
     background-color: #fff;
     margin:10px;

@@ -16,7 +16,7 @@ import LandingPagesNavBar from "./components/landingPagesNavBar";
 
 
 const Container = styled.div`
-  width: 90%;
+  width: 100%;
   color: #383f51;
   background-color: white;
   .heading {
