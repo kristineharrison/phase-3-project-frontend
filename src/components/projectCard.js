@@ -11,7 +11,7 @@ const Container = styled.div`
 
 function ProjectCard({ tasksData, setIsOpen, eachProject }) {
   return (
-    <Container onClick={() => setIsOpen(false)}>
+    <Container>
       <div>
         <div>
           <button onClick={() => setIsOpen(false)}>
