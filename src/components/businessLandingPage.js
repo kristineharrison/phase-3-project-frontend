@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
-function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness }) {
+function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness, functionToUpdateBus, functionToEnterEditMode, idForEdit }) {
   // console.log("This is the HomePage", sendBusinessData)
 
   const businessList = sendBusinessData.map((eachBusiness) => (
@@ -20,6 +20,9 @@ function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness }) {
       key={eachBusiness.id}
       eachBusiness={eachBusiness}
       functionToDeleteBusiness={functionToDeleteBusiness}
+      functionToUpdateBus={functionToUpdateBus}
+      functionToEnterEditMode={functionToEnterEditMode}
+      idForEdit={idForEdit}
     />
   ));
 

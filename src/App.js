@@ -64,11 +64,13 @@ function App() {
   const [teamsData, setTeamsData] = useState([]);
   const [tasksData, setTasksData] = useState([]);
   const [membersData, setMembersData] = useState([]);
-  const [updateProjects, setUpdateProjects] = useState([]);
-  const [updateBusiness, setUpdateBusiness] = useState([]);
-  const [updateTeams, setUpdateTeams] = useState([]);
-  const [updateTasks, setUpdateTasks] = useState([]);
-  const [updateMembers, setUpdateMembers] = useState([]);
+  const [updateProjects, setUpdateProjects] = useState([])
+  const [businessID, setBusinessID] = useState(false)
+  const [updateTeams, setUpdateTeams]  = useState([])
+  const [updateTasks, setUpdateTasks] = useState([])
+  const [updateMembers, setUpdateMembers] = useState([])
+
+
 
   useEffect(() => {
     fetch("http://localhost:9292/projects")
@@ -129,16 +131,24 @@ function App() {
     });
   }
 
-  function updateBus(updatedBus) {
-    //const updatedProj={}
-    fetch(`http://localhost:9292/projects/${updateBusiness.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedBus),
+
+function updateBus(updatedBus){
+  setBusinessData(previousBusiness => {
+    const newBusinessArray = previousBusiness.map(business =>{
+      if(business.id === updatedBus.id){
+        return updatedBus
+      }else{
+        return business
+      }
     })
-      .then((resp) => resp.json())
-      .then((data) => setUpdateBusiness(data));
-  }
+    return newBusinessArray
+  })
+  setBusinessID(false)
+}
+
+function enterEditMode(id){
+  setBusinessID(id)
+}
 
   useEffect(() => {
     fetch("http://localhost:9292/teams")
@@ -280,6 +290,7 @@ function App() {
                     sendProjectsData={projectsData}
                     tasksData={tasksData}
                     functionForAddingNewTask={addNewTask}
+                    functionForAddingNewProject={addNewProject}
                     functionToDeleteProjects={DeleteProject}
                     functionToDeleteTasks={DeleteTasks}
                     functionToUpdateProjects={updateProj}
@@ -307,7 +318,9 @@ function App() {
                     sendBusinessData={businessData}
                     functionForAddingNewBusiness={addNewBusiness}
                     functionToDeleteBusiness={DeleteBusiness}
+                    functionToEnterEditMode={enterEditMode}
                     functionToUpdateBus={updateBus}
+                    idForEdit={businessID}
                   />
                 }
               ></Route>
