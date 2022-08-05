@@ -3,20 +3,22 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
- justify-content: center;
+  justify-content: center;
   flex-direction: row;
-
-`
-const StyledLink= styled(Link)`
-  color:#383F51;
+  border-bottom: solid 3px #75b9be;
+`;
+const StyledLink = styled(Link)`
+  color: #383f51;
   font-size: 20px;
   padding: 10px;
-  links:hover{
-    color:#75b9be;
+  margin-bottom: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  links:hover {
+    color: #75b9be;
   }
-  
-`
-
+`;
 
 function PagesNavBar() {
   return (

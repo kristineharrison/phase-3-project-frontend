@@ -15,8 +15,6 @@ import NavFormBar from "./components/navFormBar";
 import LandingPagesNavBar from "./components/landingPagesNavBar";
 
 const Container = styled.div`
-  margin: 0;
-  padding: 0;
   width: 100%;
   color: #383f51;
   background-color: white;
