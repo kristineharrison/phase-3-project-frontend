@@ -12,7 +12,8 @@ const Card = styled.div`
   flex-direction: column;
   vertical-align: center;
   align-items: center;
-  border: 1px solid gray;
+  border: 2px solid #d4bebe;
+  border-radius: 8px;
   padding: 20px;
   margin: 20px;
 `;
