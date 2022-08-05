@@ -1,44 +1,46 @@
 import styled from "styled-components";
 
-import Tasks from "./tasks";
-
-import { RiCloseLine } from "react-icons/ri";
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  h4 {
+    color: #75B9BE;
+  }
+  
 `;
 
-function ProjectCard({ tasksData, setIsOpen, eachProject }) {
+const TaskList = styled.div`
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  p {
+    margin: 5px;
+  }
+`
+
+
+function ProjectCard({ setIsOpen, eachProject }) {
+
   return (
     <Container>
-      <div>
-        <div>
-          <button onClick={() => setIsOpen(false)}>
-            <RiCloseLine style={{ marginBottom: "-3px" }} />
-          </button>
-
-          <div className="details">
-            <h4>Team Notes:</h4>
-            <p>{eachProject.description}</p>
-            <br />
-          </div>
-          <div className="task-list">
-            <h4> Tasks:</h4>
-            <ul>
-              {tasksData.map((eachTask) => (
-                <Tasks key={eachTask.id} eachTask={eachTask} />
-              ))}
-            </ul>
-          </div>
-          <div>
-            <div>
-              <button onClick={() => setIsOpen(false)}>Delete</button>
-              <button onClick={() => setIsOpen(false)}>Cancel</button>
-            </div>
-          </div>
-        </div>
+      <div className="details">
+        <h4>Team Notes:</h4>
+        <p>{eachProject.description}</p>
       </div>
+      <TaskList>
+        <h4> Tasks:</h4>
+        
+          {eachProject.tasks.map((eachTask) => (
+            <div>
+              <p>{eachTask.name}</p>
+              <p>Skills Needed: {eachTask.skills_needed}</p>
+              <p>{eachTask.description}</p>
+            </div>
+          ))}
+        
+      </TaskList>
+
+      <button onClick={() => setIsOpen(false)}>Close Details</button>
     </Container>
   );
 }

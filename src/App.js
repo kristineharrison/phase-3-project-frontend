@@ -14,9 +14,50 @@ import BusinessHomePage from "./components/businessLandingPage";
 import NavFormBar from "./components/navFormBar";
 import LandingPagesNavBar from "./components/landingPagesNavBar";
 
+
 const Container = styled.div`
+  width: 90%;
   color: #383f51;
   background-color: white;
+  .heading {
+    border-bottom: solid 3px #75b9be;
+  }
+  font-family: sans-serif;
+  h1 {
+    color: #75B9BE;
+  }
+
+  p {
+    color: #383F51;
+  }
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  button {
+    background-color: #D4BEBE;
+    border: 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    outline: none;
+    padding: 5px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+  }
+
+  button:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+  }
+
 `;
 
 function App() {
@@ -25,6 +66,13 @@ function App() {
   const [teamsData, setTeamsData] = useState([]);
   const [tasksData, setTasksData] = useState([]);
   const [membersData, setMembersData] = useState([]);
+  const [updateProjects, setUpdateProjects] = useState([])
+  const [updateBusiness, setUpdateBusiness] = useState([])
+  const [updateTeams, setUpdateTeams]  = useState([])
+  const [updateTasks, setUpdateTasks] = useState([])
+  const [updateMembers, setUpdateMembers] = useState([])
+
+
 
   useEffect(() => {
     fetch("http://localhost:9292/projects")
@@ -55,6 +103,19 @@ function App() {
     });
   }
 
+  function updateProj(updatedProj){
+    console.log(updatedProj)
+    //const updatedProj={}
+      fetch(`http://localhost:9292/projects/${updateProjects}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedProj)
+      }
+  )
+    .then((resp) => resp.json())
+    .then((data) => setUpdateProjects (data))
+  }
+
   useEffect(() => {
     fetch("http://localhost:9292/business")
       .then((res) => res.json())
@@ -73,6 +134,19 @@ function App() {
     });
   }
 
+
+function updateBus(updatedBus){
+  //const updatedProj={}
+    fetch(`http://localhost:9292/projects/${updateBusiness.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedBus)
+    }
+)
+  .then((resp) => resp.json())
+  .then((data)=> setUpdateBusiness(data))
+}
+
   useEffect(() => {
     fetch("http://localhost:9292/teams")
       .then((res) => res.json())
@@ -89,6 +163,18 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTeam),
     });
+  }
+
+  function updateTeam(updatedTeam){
+    //const updatedTeam={}
+      fetch(`http://localhost:9292/projects/${updateTeams.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedTeam)
+      }
+  )
+    .then((resp) => resp.json())
+    .then((data) => setUpdateTeams(data))
   }
 
   function DeleteBusiness(id) {
@@ -128,6 +214,18 @@ function App() {
     });
   }
 
+  function updateTask(updatedTask){
+    //const updatedTask={}
+      fetch(`http://localhost:9292/projects/${updateTasks}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedTask)
+      }
+  )
+    .then((resp) => resp.json())
+    .then((data) => setUpdateTasks(data))
+  }
+
   useEffect(() => {
     fetch("http://localhost:9292/members")
       .then((res) => res.json())
@@ -156,6 +254,18 @@ function App() {
     });
   }
 
+  function updateMem(updateMem) {
+    //const updatedMem={}
+    fetch(`http://localhost:9292/projects/${updateMembers}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(updateMembers)
+    })
+    .then((resp) => resp.json())
+    .then((data) => setUpdateMembers(data))
+  }
+  
+
   return (
     <div>
       <Container>
@@ -182,6 +292,8 @@ function App() {
                     functionForAddingNewTask={addNewTask}
                     functionToDeleteProjects={DeleteProject}
                     functionToDeleteTasks={DeleteTasks}
+                    functionToUpdateProjects = {updateProj}
+                    functionToUpdateTasks = {updateTask}
                   />
                 }
               ></Route>
@@ -193,6 +305,7 @@ function App() {
                     sendMembersData={membersData}
                     functionForAddingNewMember={addNewMember}
                     functionToDeleteMembers={DeleteMembers}
+                    functionToUpdateMembers = {updateMem}
                   />
                 }
               ></Route>
@@ -204,6 +317,7 @@ function App() {
                     sendBusinessData={businessData}
                     functionForAddingNewBusiness={addNewBusiness}
                     functionToDeleteBusiness={DeleteBusiness}
+                    functionToUpdateBus={updateBus}
                   />
                 }
               ></Route>
