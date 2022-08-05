@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 import Tasks from "./tasks";
-import TeamMembers from "./teams";
 
 const Container = styled.div`
   width: 60%;

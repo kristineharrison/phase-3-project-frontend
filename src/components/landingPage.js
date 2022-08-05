@@ -1,7 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-import NavFormBar from "./navFormBar";
 import ProjectCard from "./projectCard";
 import ProjectPreview from "./projectPreview";
 
@@ -14,11 +12,7 @@ const Container = styled.div`
 `
 
 function LandingPage({ sendProjectsData, tasksData}) {
-  const [openFullProject, setOpenFullProject] = useState(true);
-
-  function displayFullCards() {
-    setOpenFullProject(!openFullProject);
-  }
+  
 
   const handleClick = (event) => {
     console.log(sendProjectsData[0]);
@@ -34,12 +28,6 @@ function LandingPage({ sendProjectsData, tasksData}) {
       <Container>
         {projectList}
 
-        {/* 
-            <div className="projectItems" onClick={displayFullCards}> 
-                {openFullProject? 
-                    <ProjectPreview sendProjectsData={sendProjectsData}/> : 
-                    <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData}/>}
-            </div> */}
       </Container>
       <button className="bttn"> Create New Project </button>
 

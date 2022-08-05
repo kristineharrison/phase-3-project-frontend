@@ -21,7 +21,8 @@ const Container = styled.div`
   background-color: white;
 
   .heading{
-    border-bottom: solid 3px #75B9BE;
+    border-bottom: solid 5px #75B9BE;
+    display: inline-flex;
   }
 `
 

@@ -1,20 +1,27 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+
+`
+const StyledLink= styled(Link)`
+  color:#383F51;
+  
+`
+
 
 function PagesNavBar() {
   return (
     <Container>
-      <Link to="/" className="link">
+      <StyledLink to="/">
         Projects
-      </Link>
-      <Link to="/members" className="links">
+      </StyledLink>
+      <StyledLink to="/members">
         Members
-      </Link>
-      <Link to="businesses" className="link">
+      </StyledLink>
+      <StyledLink to="businesses">
         Businesses
-      </Link>
+      </StyledLink>
     </Container>
   );
 }
