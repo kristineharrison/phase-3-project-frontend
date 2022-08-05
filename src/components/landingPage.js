@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import {useState} from 'react'
 
 import ProjectPreview from "./projectPreview";
+import NewProjectForm from './newProjectForm'
 
 
 const Container = styled.div`
@@ -22,10 +24,12 @@ function LandingPage({
     tasksData,
     functionToDeleteProjects,
     functionToDeleteTasks,
+    functionForAddingNewProject,
     
     }) {
 
   
+    const [openProjForm, setOpenProjForm] = useState(false)
 
     const projectList = sendProjectsData.map((eachProject) => (
         <ProjectPreview
@@ -37,9 +41,15 @@ function LandingPage({
         />
     ));
 
+    function toggleform(){
+      setOpenProjForm(!openProjForm)
+    }
+
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>Project Manager </h1><button className="bttn"> Create New Project </button>
+            <h1 style={{ textAlign: "center" }}>Project Manager </h1>
+            <button className="bttn" onClick={toggleform}> Create Project </button>
+            {openProjForm? < NewProjectForm functionForAddingNewProject={functionForAddingNewProject}/> :null}
             <Container>{projectList}</Container>
         
         </div>

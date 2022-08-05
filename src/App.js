@@ -67,7 +67,7 @@ function App() {
   const [tasksData, setTasksData] = useState([]);
   const [membersData, setMembersData] = useState([]);
   const [updateProjects, setUpdateProjects] = useState([])
-  const [updateBusiness, setUpdateBusiness] = useState([])
+  const [businessID, setBusinessID] = useState(false)
   const [updateTeams, setUpdateTeams]  = useState([])
   const [updateTasks, setUpdateTasks] = useState([])
   const [updateMembers, setUpdateMembers] = useState([])
@@ -137,14 +137,21 @@ function App() {
 
 function updateBus(updatedBus){
   //const updatedProj={}
-    fetch(`http://localhost:9292/projects/${updateBusiness.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedBus)
-    }
-)
-  .then((resp) => resp.json())
-  .then((data)=> setUpdateBusiness(data))
+  setBusinessData(previousBusiness => {
+    const newBusinessArray = previousBusiness.map(business =>{
+      if(business.id === updatedBus.id){
+        return updatedBus
+      }else{
+        return business
+      }
+    })
+    return newBusinessArray
+  })
+  setBusinessID(false)
+}
+
+function enterEditMode(id){
+  setBusinessID(id)
 }
 
   useEffect(() => {
@@ -290,6 +297,7 @@ function updateBus(updatedBus){
                     sendProjectsData={projectsData}
                     tasksData={tasksData}
                     functionForAddingNewTask={addNewTask}
+                    functionForAddingNewProject={addNewProject}
                     functionToDeleteProjects={DeleteProject}
                     functionToDeleteTasks={DeleteTasks}
                     functionToUpdateProjects = {updateProj}
@@ -317,7 +325,9 @@ function updateBus(updatedBus){
                     sendBusinessData={businessData}
                     functionForAddingNewBusiness={addNewBusiness}
                     functionToDeleteBusiness={DeleteBusiness}
+                    functionToEnterEditMode={enterEditMode}
                     functionToUpdateBus={updateBus}
+                    idForEdit={businessID}
                   />
                 }
               ></Route>
