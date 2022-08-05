@@ -1,7 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-import NavFormBar from "./navFormBar";
 
 import ProjectPreview from "./projectPreview";
 
@@ -18,11 +16,8 @@ function LandingPage({
   functionToDeleteProjects,
   functionToDeleteTasks,
 }) {
-  const [openFullProject, setOpenFullProject] = useState(true);
 
-  function displayFullCards() {
-    setOpenFullProject(!openFullProject);
-  }
+  
 
   const projectList = sendProjectsData.map((eachProject) => (
     <ProjectPreview
