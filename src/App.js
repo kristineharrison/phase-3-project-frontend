@@ -14,9 +14,8 @@ import BusinessHomePage from "./components/businessLandingPage";
 import NavFormBar from "./components/navFormBar";
 import LandingPagesNavBar from "./components/landingPagesNavBar";
 
-
 const Container = styled.div`
-  width: 90%;
+  width: 100%;
   color: #383f51;
   background-color: white;
   .heading {
@@ -24,18 +23,18 @@ const Container = styled.div`
   }
   font-family: sans-serif;
   h1 {
-    color: #75B9BE;
+    color: #75b9be;
   }
 
   p {
-    color: #383F51;
+    color: #383f51;
   }
   display: flex;
   justify-content: center;
   align-content: center;
 
   button {
-    background-color: #D4BEBE;
+    background-color: #d4bebe;
     border: 0;
     border-radius: 8px;
     box-sizing: border-box;
@@ -53,11 +52,10 @@ const Container = styled.div`
   }
 
   button:active {
-  background-color: #F7F7F7;
-  border-color: #000000;
-  transform: scale(.96);
+    background-color: #f7f7f7;
+    border-color: #000000;
+    transform: scale(0.96);
   }
-
 `;
 
 function App() {
@@ -103,24 +101,23 @@ function App() {
     });
   }
 
-  function updateProj(updatedProj){
-    console.log(updatedProj)
+  function updateProj(updatedProj) {
+    console.log(updatedProj);
     //const updatedProj={}
-      fetch(`http://localhost:9292/projects/${updateProjects}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedProj)
-      }
-  )
-    .then((resp) => resp.json())
-    .then((data) => setUpdateProjects (data))
+    fetch(`http://localhost:9292/projects/${updateProjects}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedProj),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUpdateProjects(data));
   }
 
   useEffect(() => {
     fetch("http://localhost:9292/business")
       .then((res) => res.json())
       .then((fetchedData) => {
-        console.log( "Businesses:",fetchedData);
+        console.log("Businesses:", fetchedData);
         setBusinessData(fetchedData);
       });
   }, []);
@@ -172,16 +169,15 @@ function enterEditMode(id){
     });
   }
 
-  function updateTeam(updatedTeam){
+  function updateTeam(updatedTeam) {
     //const updatedTeam={}
-      fetch(`http://localhost:9292/projects/${updateTeams.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedTeam)
-      }
-  )
-    .then((resp) => resp.json())
-    .then((data) => setUpdateTeams(data))
+    fetch(`http://localhost:9292/projects/${updateTeams.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedTeam),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUpdateTeams(data));
   }
 
   function DeleteBusiness(id) {
@@ -221,16 +217,15 @@ function enterEditMode(id){
     });
   }
 
-  function updateTask(updatedTask){
+  function updateTask(updatedTask) {
     //const updatedTask={}
-      fetch(`http://localhost:9292/projects/${updateTasks}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedTask)
-      }
-  )
-    .then((resp) => resp.json())
-    .then((data) => setUpdateTasks(data))
+    fetch(`http://localhost:9292/projects/${updateTasks}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedTask),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUpdateTasks(data));
   }
 
   useEffect(() => {
@@ -265,13 +260,12 @@ function enterEditMode(id){
     //const updatedMem={}
     fetch(`http://localhost:9292/projects/${updateMembers}`, {
       method: "PATCH",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(updateMembers)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updateMembers),
     })
-    .then((resp) => resp.json())
-    .then((data) => setUpdateMembers(data))
+      .then((resp) => resp.json())
+      .then((data) => setUpdateMembers(data));
   }
-  
 
   return (
     <div>
@@ -300,8 +294,8 @@ function enterEditMode(id){
                     functionForAddingNewProject={addNewProject}
                     functionToDeleteProjects={DeleteProject}
                     functionToDeleteTasks={DeleteTasks}
-                    functionToUpdateProjects = {updateProj}
-                    functionToUpdateTasks = {updateTask}
+                    functionToUpdateProjects={updateProj}
+                    functionToUpdateTasks={updateTask}
                   />
                 }
               ></Route>
@@ -313,7 +307,7 @@ function enterEditMode(id){
                     sendMembersData={membersData}
                     functionForAddingNewMember={addNewMember}
                     functionToDeleteMembers={DeleteMembers}
-                    functionToUpdateMembers = {updateMem}
+                    functionToUpdateMembers={updateMem}
                   />
                 }
               ></Route>

@@ -2,21 +2,23 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-
-`
-const StyledLink= styled(Link)`
-  color:#383F51;
-  font-size: 20px;
-  display:flex;
+  display: flex;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-evenly;
-  
-  links:hover{
-    color:#75b9be;
+  border-bottom: solid 3px #75b9be;
+`;
+const StyledLink = styled(Link)`
+  color: #383f51;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  links:hover {
+    color: #75b9be;
   }
-  
-`
-
+`;
 
 function PagesNavBar() {
   return (

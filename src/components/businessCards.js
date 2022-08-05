@@ -5,6 +5,7 @@ import UpdateBusinessForm from "./updateBusinessForm";
 const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-evenly;
 `;
 
 const Card = styled.div`
@@ -15,6 +16,7 @@ const Card = styled.div`
   align-items: center;
   border: 1px solid gray;
   padding: 20px;
+  margin: 20px;
 `;
 
 const ButtonNav = styled.div`
@@ -45,10 +47,10 @@ function BusinessCards({ eachBusiness, functionToDeleteBusiness, functionToUpdat
   return (
     <Container>
       <Card>
-        <img  
-        src={eachBusiness.logo_url}
-        alt={eachBusiness.name}
-        style={{ width: "200px" }}
+        <img
+          src={eachBusiness.logo_url}
+          alt={eachBusiness.name}
+          style={{ width: "200px" }}
         />
         <p> Name:{eachBusiness.name} </p>
         <p>Point of Contact: {eachBusiness.contact_name}</p>
@@ -58,7 +60,6 @@ function BusinessCards({ eachBusiness, functionToDeleteBusiness, functionToUpdat
           {updateFormOpen? <UpdateBusinessForm eachBusiness={eachBusiness} functionToUpdateBus={functionToUpdateBus} idForEdit={idForEdit}/> : null}
       <ButtonNav onClick={deleteClick}>Delete</ButtonNav>
       </Card>
-      
     </Container>
   );
 }

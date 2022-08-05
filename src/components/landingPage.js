@@ -4,19 +4,16 @@ import {useState} from 'react'
 import ProjectPreview from "./projectPreview";
 import NewProjectForm from './newProjectForm'
 
-
 const Container = styled.div`
-
   margin-top: 20px;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-evenly;
   padding: 20px;
-  border-top: solid 3px #75b9be;
-    margin-top: 20px;
-  
+  margin-top: 20px;
+
   justify-content: space-around;
- 
 `;
 
 function LandingPage({
