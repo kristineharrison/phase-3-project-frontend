@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import ProjectCard from "./projectCard";
 import ProjectPreview from "./projectPreview";
 
 const Container = styled.div`
@@ -9,30 +8,24 @@ const Container = styled.div`
   flex-flow: row wrap;
   padding: 20px;
 
-`
-
-function LandingPage({ sendProjectsData, tasksData}) {
-  
-
-  const handleClick = (event) => {
-    console.log(sendProjectsData[0]);
-  };
+function LandingPage({sendProjectsData, tasksData, functionToDeleteProjects, functionToDeleteTasks,}){
 
   const projectList = sendProjectsData.map((eachProject) => (
-    <ProjectPreview key={eachProject.id} eachProject={eachProject} />
+    <ProjectPreview
+      key={eachProject.id}
+      eachProject={eachProject}
+      tasksData={tasksData}
+      functionToDeleteProjects={functionToDeleteProjects}
+      functionToDeleteTasks={functionToDeleteTasks}
+    />
   ));
 
-  return (
+  return(
     <div>
-      <h1 onClick={handleClick}> Project Manager </h1>
-      <Container>
-        {projectList}
-
-      </Container>
+      <h1> Project Manager </h1>
+      <Container>{projectList}</Container>
       <button className="bttn"> Create New Project </button>
-
-      <ProjectCard sendProjectsData={sendProjectsData} tasksData={tasksData} />
     </div>
-  );
+  )
 }
-export default LandingPage;
+export default LandingPage

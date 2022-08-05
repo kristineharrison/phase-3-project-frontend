@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import styled from "styled-components";
 
-=======
-import { useState } from "react";
-import styled from "styled-components";
->>>>>>> main
 import Tasks from "./tasks";
 
 import { RiCloseLine } from "react-icons/ri";

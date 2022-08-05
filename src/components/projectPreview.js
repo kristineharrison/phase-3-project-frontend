@@ -10,13 +10,13 @@ const Card = styled.div`
   align-items: center;
   border: 1px solid gray;
   padding: 20px;
-`;
+`
 
 const ButtonNav = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px;
-`;
+`
 
 function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
   const [isOpen, setIsOpen] = useState(false);

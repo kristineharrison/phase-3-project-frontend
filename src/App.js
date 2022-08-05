@@ -2,21 +2,8 @@
 //  white for main background
 //  bluish for accents (#75B9BE)
 //  charcole for text (383F51)
-//  silver pink for background accents (#D$B3B3)
+//  silver pink for background accents (#D4BEBE)
 
-<<<<<<< HEAD
-
-import { useState, useEffect } from 'react';
-import styled from 'styled-components'
-import {Routes, Route} from 'react-router-dom'
-
-import LandingPage from './components/landingPage';
-import MembersLandingPage from './components/membersLandingPage'
-import BusinessHomePage from './components/businessLandingPage'
-import NavFormBar from './components/navFormBar'
-import LandingPagesNavBar from './components/landingPagesNavBar'
-
-=======
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
@@ -26,27 +13,10 @@ import MembersLandingPage from "./components/membersLandingPage";
 import BusinessHomePage from "./components/businessLandingPage";
 import NavFormBar from "./components/navFormBar";
 import LandingPagesNavBar from "./components/landingPagesNavBar";
->>>>>>> main
 
 const Container = styled.div`
   color: #383f51;
   background-color: white;
-<<<<<<< HEAD
-
-  .heading{
-    border-bottom: solid 5px #75B9BE;
-    display: inline-flex;
-  }
-`
-
-function App(){
-
-  const [projectsData, setProjectsData] = useState([])
-  const [businessData, setBusinessData] = useState([])
-  const [teamsData, setTeamsData] = useState([])
-  const [tasksData, setTasksData] = useState([])
-  const [membersData, setMembersData] = useState([])
-=======
   .heading {
     border-bottom: solid 3px #75b9be;
   }
@@ -58,7 +28,6 @@ function App() {
   const [teamsData, setTeamsData] = useState([]);
   const [tasksData, setTasksData] = useState([]);
   const [membersData, setMembersData] = useState([]);
->>>>>>> main
 
   useEffect(() => {
     fetch("http://localhost:9292/projects")
@@ -191,34 +160,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <Container>
-      <div className="heading"> 
-        <NavFormBar
-          functionForAddingNewBusiness={addNewBusiness}
-          // functionForAddingNewTeam={toodles}
-          functionForAddingNewTeam={addNewTeam}
-          functionForAddingNewTask={addNewTask}
-          functionForAddingNewMember={addNewMember}
-          functionForAddingNewProject={addNewProject}
-        />
-        {/* NAVFORMBAR WORKS SORTOF */}
-        <LandingPagesNavBar />
-      </div>
-      <div className="landing-page-routes">
-                {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
-              <Routes>
-                <Route path="/" element={
-                    <LandingPage 
-                      sendProjectsData={projectsData}
-                      tasksData = {tasksData}
-                      functionForAddingNewTask={addNewTask}
-                  />}
-                ></Route>
-
-                <Route path="/members" element={
-                  <MembersLandingPage 
-=======
     <div>
       <Container>
         <div className="heading">
@@ -252,7 +193,6 @@ function App() {
                 path="/members"
                 element={
                   <MembersLandingPage
->>>>>>> main
                     sendMembersData={membersData}
                     functionForAddingNewMember={addNewMember}
                     functionToDeleteMembers={DeleteMembers}
