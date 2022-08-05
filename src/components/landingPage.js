@@ -8,6 +8,9 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
+  border-top: solid 3px #75b9be;
+    margin-top: 20px;
+  
 `;
 
 function LandingPage({

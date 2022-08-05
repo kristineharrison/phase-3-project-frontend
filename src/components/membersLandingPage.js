@@ -8,6 +8,9 @@ import styled from "styled-components";
 import MemberProfileCard from "./memberProfileCards";
 
 const Container = styled.div`
+    border-top: solid 3px #75b9be;
+    margin-top: 20px;
+  
   
   header{
     text-align: center;

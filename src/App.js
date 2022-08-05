@@ -17,9 +17,6 @@ import LandingPagesNavBar from "./components/landingPagesNavBar";
 const Container = styled.div`
   color: #383f51;
   background-color: white;
-  .heading {
-    border-bottom: 3px solid #75b9be;
-  }
 `;
 
 function App() {
@@ -50,11 +47,11 @@ function App() {
 
   function DeleteProject(id) {
     console.log(id);
-    setProjectsData((previousProjects) => {
-      const filteredProjectsbyID = previousProjects.filter(
+    setProjectsData((previousProject) => {
+      const filteredProjectbyID = previousProject.filter(
         (project) => project.id !== id
       );
-      return filteredProjectsbyID;
+      return filteredProjectbyID;
     });
   }
 
@@ -162,8 +159,8 @@ function App() {
   return (
     <div>
       <Container>
-        <div>
-          <NavFormBar className="heading"
+        <div className="heading">
+          <NavFormBar
             functionForAddingNewBusiness={addNewBusiness}
             // functionForAddingNewTeam={toodles}
             functionForAddingNewTeam={addNewTeam}
@@ -172,7 +169,7 @@ function App() {
             functionForAddingNewProject={addNewProject}
           />
           {/* NAVFORMBAR WORKS SORTOF */}
-          <LandingPagesNavBar className="heading"/>
+          <LandingPagesNavBar />
           <div className="landing-page-routes">
             {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
             <Routes>
@@ -183,7 +180,7 @@ function App() {
                     sendProjectsData={projectsData}
                     tasksData={tasksData}
                     functionForAddingNewTask={addNewTask}
-                    DeleteProject={DeleteProject}
+                    functionToDeleteProjects={DeleteProject}
                     functionToDeleteTasks={DeleteTasks}
                   />
                 }

@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import BusinessCards from "./businessCards";
 
-const Container = styled.div``;
+const Container = styled.div`
+  border-top: solid 3px #75b9be;
+  margin-top: 20px;
+  
+
+
+`;
 
 function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness }) {
   // console.log("This is the HomePage", sendBusinessData)
