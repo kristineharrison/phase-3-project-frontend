@@ -2,11 +2,15 @@ import styled from "styled-components";
 import BusinessCards from "./businessCards";
 
 const Container = styled.div`
-  border-top: solid 3px #75b9be;
-  margin-top: 20px;
-  
+margin-top: 20px;
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+padding: 20px;
+border-top: solid 3px #75b9be;
+margin-top: 20px;
 
-
+justify-content: space-around;
 `;
 
 function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness }) {
@@ -21,10 +25,13 @@ function BusinessHomePage({ sendBusinessData, functionToDeleteBusiness }) {
   ));
 
   return (
-    <Container>
-      <h1> Business Managers </h1>
-      {businessList}
-    </Container>
+    <div>
+      <h1 style={{ textAlign: "center" }}> Business Managers </h1>
+        <Container>
+        {businessList}
+      </Container>
+    </div>
+   
   );
 }
 export default BusinessHomePage;

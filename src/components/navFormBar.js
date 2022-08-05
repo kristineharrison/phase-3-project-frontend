@@ -7,7 +7,12 @@ import NewMemberForm from './newMemberform'
 import NewTeamForm from './newTeamForm'
 
 const Container = styled.div`
+  
+
+
     color: #383F51;
+
+   
     .forms{
         position:absolute;
         background-color:rgba(212, 190, 190,.85);

@@ -8,6 +8,7 @@ const StyledLink= styled(Link)`
   color:#383F51;
   font-size: 20px;
   display:flex;
+  flex-direction: row;
   justify-content: space-evenly;
   
   links:hover{
