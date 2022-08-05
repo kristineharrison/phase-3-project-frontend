@@ -70,7 +70,10 @@ function MemberProfileCard({ eachMember, functionToDeleteMembers }) {
         <p>Ready to work!!!</p>
       </div>
       <FooterButton>
-        <button onClick={deleteClick}> Delete Member </button>
+        <button style={{ backgroundColor: "white" }} onClick={deleteClick}>
+          {" "}
+          Delete Member{" "}
+        </button>
       </FooterButton>
     </Container>
   );
