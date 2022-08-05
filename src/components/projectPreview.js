@@ -10,14 +10,15 @@ const Card = styled.div`
   align-items: center;
   border: 1px solid gray;
   padding: 20px;
-`
+  margin: 20px;
+`;
 
 const ButtonNav = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: row;
   padding: 10px;
-`
+`;
 
 function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,9 @@ function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
       )}
       <ButtonNav>
         <button className="button"> Update Project </button>
-        <button className="button" onClick={deleteClick}>Delete Project</button>
+        <button className="button" onClick={deleteClick}>
+          Delete Project
+        </button>
       </ButtonNav>
     </Card>
   );
