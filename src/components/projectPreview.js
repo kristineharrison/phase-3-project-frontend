@@ -33,14 +33,14 @@ function ProjectPreview({ eachProject, tasksData, functionToDeleteProjects }) {
     <Card>
       <h3>Project Name: {eachProject.name}</h3>
       <img
-        src={eachProject.business.logo_url}
+        // src={eachProject.business.logo_url}
         style={{ width: "150px" }}
-        alt={eachProject.business.name}
+        // alt={eachProject.business.name}
       />
       <h6>Due Date: {eachProject.due_date}</h6>
-      <p>Client:{eachProject.business.name}</p>
+      {/* <p>Client:{eachProject.business.name}</p> */}
       <p>{eachProject.description}</p>
-      <p>Team Assigned: {eachProject.team.team_name}</p>
+      {/* <p>Team Assigned: {eachProject.team.team_name}</p> */}
 
       <button onClick={() => setIsOpen(true)}>Project Details</button>
       {isOpen && (
