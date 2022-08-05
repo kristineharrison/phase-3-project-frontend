@@ -30,8 +30,8 @@ const Container = styled.div`
 
 const FooterButton = styled.div`
   button {
-    color: #383f51;
-    background-color: #fff;
+    // color: #383f51;
+    background: white;
     margin: 10px;
     border-radius: 12px / 10px;
     display: flex;
