@@ -1,4 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
+
+import NavFormBar from "./navFormBar";
 
 import ProjectPreview from "./projectPreview";
 
@@ -7,8 +10,9 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
+`;
 
-  function LandingPage({
+function LandingPage({
   sendProjectsData,
   tasksData,
   functionToDeleteProjects,
