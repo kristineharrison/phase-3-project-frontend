@@ -133,7 +133,6 @@ function App() {
 
 
 function updateBus(updatedBus){
-  //const updatedProj={}
   setBusinessData(previousBusiness => {
     const newBusinessArray = previousBusiness.map(business =>{
       if(business.id === updatedBus.id){

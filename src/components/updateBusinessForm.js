@@ -24,7 +24,7 @@ function UpdateBusinessForm({eachBusiness, functionToUpdateBus, idForEdit}){
     
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({...formData, [name]: value });
+        setFormData({ [name]: value });
     };
 
     function handleSubmit(e){
@@ -44,7 +44,7 @@ function UpdateBusinessForm({eachBusiness, functionToUpdateBus, idForEdit}){
             <form onSubmit={handleSubmit}>
                 <h3> Update Business </h3>
                 <input type ="text" placeholder='Business Name' name={formData.name} value={formData.name} onChange={handleChange}/> 
-                <input type ="url" placeholder='Business Image Url' name={formData.logo_url} value={formData.logo_url} onChange={handleChange}/>
+                <input type ="text" placeholder='Business Image Url' name={formData.logo_url} value={formData.logo_url} onChange={handleChange}/>
                 <input type ="text" placeholder='Business Email' name={formData.email} value={formData.email} onChange={handleChange}/>
                 <input type ="text" placeholder='Business Phone Number' name={formData.phone} value={formData.phone} onChange={handleChange}/>
                 <input type ="text" placeholder='Primary Contact' name={formData.contact_name}value={formData.contact_name} onChange={handleChange}/>
