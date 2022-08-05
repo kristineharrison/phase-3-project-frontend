@@ -1,42 +1,49 @@
+<<<<<<< HEAD
 import styled from "styled-components";
 
+=======
+import { useState } from "react";
+import styled from "styled-components";
+>>>>>>> main
 import Tasks from "./tasks";
 
+import { RiCloseLine } from "react-icons/ri";
+
 const Container = styled.div`
-  width: 60%;
   display: flex;
   flex-direction: column;
 `;
 
-function ProjectCard({ sendProjectsData, tasksData }) {
+function ProjectCard({ tasksData, setIsOpen, eachProject }) {
   return (
-    <Container>
-      <h1>{sendProjectsData.name}</h1>
-      <div className="Team">
-        <h4>Team Name{sendProjectsData.team_name}</h4>
-      </div>
-      <div className="details">
-        <h6>Client:</h6>
-        {/* <p>{sendProjectsData.business.name}</p> */}
-        <br />
-        <h6>Project Description:</h6>
-        <p>{sendProjectsData.description}</p>
-        <br />
-        <h6> Due Date: </h6>
-        <p>{sendProjectsData.due_date}</p>
-        <br />
-      </div>
-      <div className="task-list">
-        <h4> Tasks:</h4>
-        <ul>
-          {tasksData.map((eachTask) => (
-            <Tasks key={eachTask.id} eachTask={eachTask} />
-          ))}
-        </ul>
-      </div>
+    <Container onClick={() => setIsOpen(false)}>
+      <div>
+        <div>
+          <button onClick={() => setIsOpen(false)}>
+            <RiCloseLine style={{ marginBottom: "-3px" }} />
+          </button>
 
-      <button className="button"> Update Project </button>
-      <button className="button"> Delete Project </button>
+          <div className="details">
+            <h4>Team Notes:</h4>
+            <p>{eachProject.description}</p>
+            <br />
+          </div>
+          <div className="task-list">
+            <h4> Tasks:</h4>
+            <ul>
+              {tasksData.map((eachTask) => (
+                <Tasks key={eachTask.id} eachTask={eachTask} />
+              ))}
+            </ul>
+          </div>
+          <div>
+            <div>
+              <button onClick={() => setIsOpen(false)}>Delete</button>
+              <button onClick={() => setIsOpen(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }
