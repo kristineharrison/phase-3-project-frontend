@@ -11,18 +11,32 @@ const Container = styled.div`
 
   color: white;
   background-color: #D4BEBE;
-  min-width: 300px;
+  width: 300px;
+  min-height: 180px;
   border: 4px solid #75b9be;
   margin-top: 20px;
   margin-left:auto;
   margin-bottom: 15px;
   margin-right: auto;
   border-radius: 20px / 10px;
+  padding: 0 15px 15px 15px;
   
 
   .not-project-list{
-    display: flex;
+  }
+  button{
+    color: #383F51;
+    margin:10px;
+    border-radius: 12px / 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: solid white;
     
+  }
+  button:hover{
+    background-color: #75b9be;
+    color: #383F51;
   }
   
   
@@ -39,13 +53,16 @@ function MemberProfileCard({ eachMember, functionToDeleteMembers }) {
 
   return (
     <Container>
+      <div className="not-project-list"> 
       <p> Name: {eachMember.name} </p>
       <p> Skill: {eachMember.skill}</p>
-      <br />
-      <div className="projects-list">
-        <li> "List of projects they are on" </li>
       </div>
-      <button onClick={deleteClick}> Delete Member </button>
+      <div className="projects-list">
+        <p> "List of projects : " </p>
+      </div>
+      <footer>
+        <button onClick={deleteClick}> Delete Member </button>
+      </footer>
     </Container>
   );
 }

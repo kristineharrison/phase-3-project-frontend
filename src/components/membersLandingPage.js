@@ -18,8 +18,9 @@ const Container = styled.div`
   .cards {
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
-
+  }
+  .title{
+    text-align:center
   }
 `;
 
@@ -33,8 +34,12 @@ function MembersHomePage({ sendMembersData, functionToDeleteMembers }) {
   ));
   return (
     <Container>
+      <div className="title">
       <h1> Members Manager</h1>
-      {membersList}
+      </div>
+      <div className="cards">
+        {membersList}
+      </div>
     </Container>
   );
 }

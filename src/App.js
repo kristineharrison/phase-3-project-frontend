@@ -18,7 +18,7 @@ const Container = styled.div`
   color: #383f51;
   background-color: white;
   .heading {
-    border-bottom: solid 3px #75b9be;
+    border-bottom: 3px solid #75b9be;
   }
 `;
 
@@ -162,8 +162,8 @@ function App() {
   return (
     <div>
       <Container>
-        <div className="heading">
-          <NavFormBar
+        <div>
+          <NavFormBar className="heading"
             functionForAddingNewBusiness={addNewBusiness}
             // functionForAddingNewTeam={toodles}
             functionForAddingNewTeam={addNewTeam}
@@ -172,7 +172,7 @@ function App() {
             functionForAddingNewProject={addNewProject}
           />
           {/* NAVFORMBAR WORKS SORTOF */}
-          <LandingPagesNavBar />
+          <LandingPagesNavBar className="heading"/>
           <div className="landing-page-routes">
             {/* NAVFORMBAR WORKS, forms need to be blanked after submit*/}
             <Routes>
